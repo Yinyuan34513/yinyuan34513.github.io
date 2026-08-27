@@ -69,10 +69,19 @@ install_opencode() {
     if [ "$platform" = "termux" ]; then
         echo "Installing OpenCode for Termux/Android..."
 
-        # Download standalone binary
+        # Download standalone binary (zstd compressed)
         echo "Downloading opencode binary..."
         curl -L "${BASE_URL}/${REPO}/releases/download/${RELEASE_TAG}/opencode-termux" \
-            -o "$INSTALL_DIR/opencode"
+            -o "/tmp/opencode-termux.zst"
+
+        # Decompress
+        if command -v zstd &>/dev/null; then
+            zstd -d -f "/tmp/opencode-termux.zst" -o "$INSTALL_DIR/opencode"
+        else
+            echo "Warning: zstd not found, trying to install..."
+            pkg install -y zstd 2>/dev/null && zstd -d -f "/tmp/opencode-termux.zst" -o "$INSTALL_DIR/opencode"
+        fi
+        rm -f "/tmp/opencode-termux.zst"
         chmod +x "$INSTALL_DIR/opencode"
 
         echo "Installed to: $INSTALL_DIR/opencode"
