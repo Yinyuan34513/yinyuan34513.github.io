@@ -87,9 +87,16 @@ install_opencode() {
     else
         echo "Installing OpenCode for $platform..."
 
-        # Download and extract full package
-        local ext="tar.zst"
-        local filename="opencode-${platform}.${ext}"
+        # Check if platform-specific release exists, fallback to Termux bundle
+        local filename="opencode-${platform}.tar.zst"
+        local url="${BASE_URL}/${REPO}/releases/download/${RELEASE_TAG}/${filename}"
+        local http_code=$(curl -s -o /dev/null -w "%{http_code}" --connect-timeout 5 "$url")
+
+        if [ "$http_code" != "200" ]; then
+            echo "No pre-built binary for $platform, using Termux bundle..."
+            filename="opencode-termux-aarch64.tar.zst"
+        fi
+
         echo "Downloading $filename..."
         curl -L "${BASE_URL}/${REPO}/releases/download/${RELEASE_TAG}/${filename}" \
             -o "/tmp/${filename}"
