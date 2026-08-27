@@ -7,6 +7,18 @@ set -e
 REPO="Yinyuan34513/opencode-termux"
 RELEASE_TAG="v1.18.23-termux"
 INSTALL_DIR="${HOME}/opencode"
+PROXY="https://v4.gh-proxy.org"
+GITHUB="https://github.com"
+
+# Check if direct GitHub access works
+check_github() {
+    if curl -s --connect-timeout 5 --max-time 10 "https://github.com" >/dev/null 2>&1; then
+        BASE_URL="$GITHUB"
+    else
+        echo "⚠️  Direct GitHub connection failed, using proxy: $PROXY"
+        BASE_URL="$PROXY/$GITHUB"
+    fi
+}
 
 # Detect platform
 detect_platform() {
@@ -59,7 +71,7 @@ install_opencode() {
 
         # Download standalone binary
         echo "Downloading opencode binary..."
-        curl -L "https://github.com/$REPO/releases/download/$RELEASE_TAG/opencode-termux" \
+        curl -L "${BASE_URL}/${REPO}/releases/download/${RELEASE_TAG}/opencode-termux" \
             -o "$INSTALL_DIR/opencode"
         chmod +x "$INSTALL_DIR/opencode"
 
@@ -79,16 +91,16 @@ install_opencode() {
         local ext="tar.zst"
         local filename="opencode-${platform}.${ext}"
         echo "Downloading $filename..."
-        curl -L "https://github.com/$REPO/releases/download/$RELEASE_TAG/$filename" \
-            -o "/tmp/$filename"
+        curl -L "${BASE_URL}/${REPO}/releases/download/${RELEASE_TAG}/${filename}" \
+            -o "/tmp/${filename}"
 
         echo "Extracting..."
         if command -v zstd &>/dev/null; then
-            tar xf "/tmp/$filename" --zstd -C "$INSTALL_DIR"
+            tar xf "/tmp/${filename}" --zstd -C "$INSTALL_DIR"
         else
-            tar xf "/tmp/$filename" -C "$INSTALL_DIR"
+            tar xf "/tmp/${filename}" -C "$INSTALL_DIR"
         fi
-        rm -f "/tmp/$filename"
+        rm -f "/tmp/${filename}"
 
         echo "Installed to: $INSTALL_DIR"
         echo ""
@@ -100,6 +112,7 @@ install_opencode() {
 # Main
 echo "=== OpenCode Installer ==="
 echo ""
+check_github
 check_deps
 install_opencode
 echo ""
