@@ -70,7 +70,7 @@ install_opencode() {
         echo "Installing OpenCode for Termux/Android..."
 
         # Use Termux-compatible temp directory
-        local tmpdir="${TMPDIR:-/tmp}"
+        local tmpdir="${TMPDIR:-$HOME}"
         mkdir -p "$tmpdir"
 
         # Download standalone binary (zstd compressed)
@@ -99,7 +99,7 @@ install_opencode() {
 
     else
         echo "Installing OpenCode for $platform..."
-        local tmpdir="${TMPDIR:-/tmp}"
+        local tmpdir="${TMPDIR:-$HOME}"
         mkdir -p "$tmpdir"
 
         # Check if platform-specific release exists, fallback to Termux bundle
