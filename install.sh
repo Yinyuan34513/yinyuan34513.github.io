@@ -2,132 +2,108 @@
 
 # Termux AI Tool Installer
 # https://github.com/Yinyuan34513/opencode-termux
+# Usage: curl -sL https://yinyuan34513.github.io/install.sh | bash
 
 REPO="Yinyuan34513/opencode-termux"
 RELEASE_TAG="v1.18.23-termux"
 PROXY="https://v4.gh-proxy.org"
 GITHUB="https://github.com"
 
-# TUI helpers
-HIDE_CURSOR='\033[?25l'
-SHOW_CURSOR='\033[?25h'
+# If stdin is a pipe (curl | bash), re-exec with terminal stdin
+if [ ! -t 0 ]; then
+    tmpscript=$(mktemp "${TMPDIR:-$HOME}/install-XXXXX.sh")
+    curl -sL "https://yinyuan34513.github.io/install.sh" -o "$tmpscript"
+    chmod +x "$tmpscript"
+    exec bash "$tmpscript" < /dev/tty
+fi
+
+# Colors
 BOLD='\033[1m'
 DIM='\033[2m'
 RESET='\033[0m'
-BG_BLUE='\033[44m'
-FG_WHITE='\033[97m'
-FG_GREEN='\033[92m'
-FG_GRAY='\033[90m'
+BG='\033[44m'
+FG_W='\033[97m'
+FG_G='\033[92m'
+FG_GY='\033[90m'
 
 selected=1
 total=3
 
-draw_menu() {
-    local items=("OpenCode" "AtomCode" "Exit")
-    local descs=("AI coding agent with full TUI" "AI coding CLI for Android")
-    local icons=(">" ">" ">")
+draw() {
+    local names=("OpenCode" "AtomCode" "Exit")
     local w=44
-
-    printf "\033[H\033[J"
+    printf "\033[H\033[J\033[?25l"
     printf "\n"
     printf "  ┌─%s─┐\n" "$(printf '─%.0s' $(seq 1 $w))"
-    printf "  │%*s%*s│\n" $(( (w+12)/2 )) "Termux AI Tools" $(( (w+12)/2 - w )) ""
+    printf "  │%*s%*s│\n" $((w/2+6)) "Termux AI Tools" $((w/2+6-14)) ""
     printf "  ├─%s─┤\n" "$(printf '─%.0s' $(seq 1 $w))"
     printf "  │%*s│\n" $((w+12)) ""
     for i in 1 2 3; do
         if [ $i -eq $selected ]; then
-            printf "  │  ${BG_BLUE}${FG_WHITE}${BOLD}  ▸ %-40s${RESET}  │\n" "${items[$((i-1))]}"
+            printf "  │  ${BG}${FG_W}${BOLD}  ▸ %-40s${RESET}  │\n" "${names[$((i-1))]}"
         else
-            printf "  │  ${DIM}    %-40s${RESET}  │\n" "${items[$((i-1))]}"
+            printf "  │  ${DIM}    %-40s${RESET}  │\n" "${names[$((i-1))]}"
         fi
     done
     printf "  │%*s│\n" $((w+12)) ""
     printf "  ├─%s─┤\n" "$(printf '─%.0s' $(seq 1 $w))"
-    printf "  │  ${FG_GRAY}↑↓ Navigate  Enter Select  q Quit${RESET}%*s│\n" $((w-22)) ""
+    printf "  │  ${FG_GY}↑↓ Navigate  Enter Select  q Quit${RESET}%*s│\n" $((w-22)) ""
     printf "  └─%s─┘\n" "$(printf '─%.0s' $(seq 1 $w))"
-    printf "\n"
 }
 
 check_github() {
     if curl -s --connect-timeout 5 --max-time 10 "https://github.com" >/dev/null 2>&1; then
         BASE_URL="$GITHUB"
     else
-        printf "  ⚠️  Using proxy: $PROXY\n"
+        printf "  Using proxy: $PROXY\n"
         BASE_URL="$PROXY/$GITHUB"
     fi
 }
 
-detect_platform() {
-    if [ -n "$TERMUX_VERSION" ] || [ -n "$PREFIX" ] && echo "$PREFIX" | grep -q "com.termux"; then
-        echo "termux"
-    else
-        echo "unknown"
-    fi
+is_termux() {
+    [ -n "$TERMUX_VERSION" ] || { [ -n "$PREFIX" ] && echo "$PREFIX" | grep -q "com.termux"; }
 }
 
 install_opencode() {
-    local platform=$(detect_platform)
-    if [ "$platform" != "termux" ]; then
-        echo "  Only Termux/Android supported."
-        return 1
-    fi
-
-    local tmpdir="${TMPDIR:-$HOME}"
-    mkdir -p "$tmpdir"
-
+    is_termux || { echo "  Termux only."; return 1; }
+    local tmp="${TMPDIR:-$HOME}"
+    mkdir -p "$tmp"
     printf "\n  ${BOLD}Downloading OpenCode...${RESET}\n"
     curl -L --progress-bar "${BASE_URL}/${REPO}/releases/download/${RELEASE_TAG}/opencode-termux-full.tar.zst" \
-        -o "${tmpdir}/opencode-full.tar.zst"
-
+        -o "${tmp}/oc.tar.zst"
     printf "  ${BOLD}Extracting...${RESET}\n"
-    if command -v zstd &>/dev/null; then
-        tar xf "${tmpdir}/opencode-full.tar.zst" --zstd -C "$HOME"
-    else
-        pkg install -y zstd 2>/dev/null
-        tar xf "${tmpdir}/opencode-full.tar.zst" --zstd -C "$HOME"
-    fi
-    rm -f "${tmpdir}/opencode-full.tar.zst"
+    command -v zstd &>/dev/null || pkg install -y zstd 2>/dev/null
+    tar xf "${tmp}/oc.tar.zst" --zstd -C "$HOME"
+    rm -f "${tmp}/oc.tar.zst"
     chmod +x "$HOME/opencode-termux/opencode" "$HOME/opencode-termux/opencode.sh"
-
-    printf "\n  ${FG_GREEN}${BOLD}✓ Installed to ~/opencode-termux/${RESET}\n"
+    printf "\n  ${FG_G}${BOLD}✓ Installed to ~/opencode-termux/${RESET}\n"
     printf "  Run: ${BOLD}~/opencode-termux/opencode.sh${RESET}\n"
 }
 
 install_atomcode() {
-    local platform=$(detect_platform)
-    if [ "$platform" != "termux" ]; then
-        echo "  Only Termux/Android supported."
-        return 1
-    fi
-
-    local tmpdir="${TMPDIR:-$HOME}"
-    mkdir -p "$tmpdir"
-
+    is_termux || { echo "  Termux only."; return 1; }
+    local tmp="${TMPDIR:-$HOME}"
+    mkdir -p "$tmp"
     printf "\n  ${BOLD}Downloading AtomCode...${RESET}\n"
     curl -L --progress-bar "${BASE_URL}/${REPO}/releases/download/${RELEASE_TAG}/atomcode" \
-        -o "${tmpdir}/atomcode"
-
-    chmod +x "${tmpdir}/atomcode"
+        -o "${tmp}/atomcode"
+    chmod +x "${tmp}/atomcode"
     mkdir -p "$HOME/.local/bin"
-    mv "${tmpdir}/atomcode" "$HOME/.local/bin/atomcode"
-
-    printf "\n  ${FG_GREEN}${BOLD}✓ Installed to ~/.local/bin/atomcode${RESET}\n"
-    printf "  Run: ${BOLD}~/atomcode${RESET}\n"
+    mv "${tmp}/atomcode" "$HOME/.local/bin/atomcode"
+    printf "\n  ${FG_G}${BOLD}✓ Installed to ~/.local/bin/atomcode${RESET}\n"
+    printf "  Run: ${BOLD}atomcode${RESET}\n"
 }
 
-# Setup terminal
-stty_old=$(stty -g 2>/dev/null || true)
-printf "$HIDE_CURSOR"
-trap 'printf "$SHOW_CURSOR"; stty "$stty_old" 2>/dev/null; exit' INT TERM
+cleanup() { printf "\033[?25h"; }
+trap cleanup EXIT INT TERM
 
 while true; do
-    draw_menu
-    read -rsn1 key
-
+    draw
+    IFS= read -rsn1 key
     case "$key" in
         $'\x1b')
-            read -rsn2 key2
-            case "$key2" in
+            IFS= read -rsn2 k2
+            case "$k2" in
                 '[A') [ $selected -gt 1 ] && selected=$((selected-1)) ;;
                 '[B') [ $selected -lt $total ] && selected=$((selected+1)) ;;
             esac
@@ -136,11 +112,11 @@ while true; do
             case $selected in
                 1) check_github; install_opencode ;;
                 2) check_github; install_atomcode ;;
-                3) printf "$SHOW_CURSOR"; exit 0 ;;
+                3) exit 0 ;;
             esac
             echo ""
-            read -p "  Press Enter to continue..."
+            IFS= read -p "  Press Enter..." _
             ;;
-        q|Q) printf "$SHOW_CURSOR"; exit 0 ;;
+        q|Q) exit 0 ;;
     esac
 done
