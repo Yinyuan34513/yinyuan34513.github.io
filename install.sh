@@ -69,19 +69,23 @@ install_opencode() {
     if [ "$platform" = "termux" ]; then
         echo "Installing OpenCode for Termux/Android..."
 
+        # Use Termux-compatible temp directory
+        local tmpdir="${TMPDIR:-/tmp}"
+        mkdir -p "$tmpdir"
+
         # Download standalone binary (zstd compressed)
         echo "Downloading opencode binary..."
         curl -L "${BASE_URL}/${REPO}/releases/download/${RELEASE_TAG}/opencode-termux" \
-            -o "/tmp/opencode-termux.zst"
+            -o "${tmpdir}/opencode-termux.zst"
 
         # Decompress
         if command -v zstd &>/dev/null; then
-            zstd -d -f "/tmp/opencode-termux.zst" -o "$INSTALL_DIR/opencode"
+            zstd -d -f "${tmpdir}/opencode-termux.zst" -o "$INSTALL_DIR/opencode"
         else
             echo "Warning: zstd not found, trying to install..."
-            pkg install -y zstd 2>/dev/null && zstd -d -f "/tmp/opencode-termux.zst" -o "$INSTALL_DIR/opencode"
+            pkg install -y zstd 2>/dev/null && zstd -d -f "${tmpdir}/opencode-termux.zst" -o "$INSTALL_DIR/opencode"
         fi
-        rm -f "/tmp/opencode-termux.zst"
+        rm -f "${tmpdir}/opencode-termux.zst"
         chmod +x "$INSTALL_DIR/opencode"
 
         echo "Installed to: $INSTALL_DIR/opencode"
@@ -95,6 +99,8 @@ install_opencode() {
 
     else
         echo "Installing OpenCode for $platform..."
+        local tmpdir="${TMPDIR:-/tmp}"
+        mkdir -p "$tmpdir"
 
         # Check if platform-specific release exists, fallback to Termux bundle
         local filename="opencode-${platform}.tar.zst"
@@ -106,15 +112,15 @@ install_opencode() {
 
         echo "Downloading $filename..."
         curl -L "${BASE_URL}/${REPO}/releases/download/${RELEASE_TAG}/${filename}" \
-            -o "/tmp/${filename}"
+            -o "${tmpdir}/${filename}"
 
         echo "Extracting..."
         if command -v zstd &>/dev/null; then
-            tar xf "/tmp/${filename}" --zstd -C "$INSTALL_DIR"
+            tar xf "${tmpdir}/${filename}" --zstd -C "$INSTALL_DIR"
         else
-            tar xf "/tmp/${filename}" -C "$INSTALL_DIR"
+            tar xf "${tmpdir}/${filename}" -C "$INSTALL_DIR"
         fi
-        rm -f "/tmp/${filename}"
+        rm -f "${tmpdir}/${filename}"
 
         echo "Installed to: $INSTALL_DIR"
         echo ""
