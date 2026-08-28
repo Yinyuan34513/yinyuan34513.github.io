@@ -73,29 +73,31 @@ install_opencode() {
         local tmpdir="${TMPDIR:-$HOME}"
         mkdir -p "$tmpdir"
 
-        # Download standalone binary (zstd compressed)
-        echo "Downloading opencode binary..."
-        curl -L "${BASE_URL}/${REPO}/releases/download/${RELEASE_TAG}/opencode-termux" \
-            -o "${tmpdir}/opencode-termux.zst"
+        # Download full package (binary + ARM64 native libs)
+        echo "Downloading opencode package..."
+        curl -L "${BASE_URL}/${REPO}/releases/download/${RELEASE_TAG}/opencode-termux-full.tar.zst" \
+            -o "${tmpdir}/opencode-full.tar.zst"
 
-        # Decompress
+        # Extract
         if command -v zstd &>/dev/null; then
-            zstd -d -f "${tmpdir}/opencode-termux.zst" -o "$INSTALL_DIR/opencode"
+            tar xf "${tmpdir}/opencode-full.tar.zst" --zstd -C "$HOME"
         else
-            echo "Warning: zstd not found, trying to install..."
-            pkg install -y zstd 2>/dev/null && zstd -d -f "${tmpdir}/opencode-termux.zst" -o "$INSTALL_DIR/opencode"
+            echo "Installing zstd..."
+            pkg install -y zstd 2>/dev/null
+            tar xf "${tmpdir}/opencode-full.tar.zst" --zstd -C "$HOME"
         fi
-        rm -f "${tmpdir}/opencode-termux.zst"
-        chmod +x "$INSTALL_DIR/opencode"
+        rm -f "${tmpdir}/opencode-full.tar.zst"
 
-        echo "Installed to: $INSTALL_DIR/opencode"
+        chmod +x "$HOME/opencode-termux/opencode" "$HOME/opencode-termux/opencode.sh"
+
+        echo "Installed to: $HOME/opencode-termux/"
         echo ""
         echo "Run with:"
-        echo "  $INSTALL_DIR/opencode"
+        echo "  ~/opencode-termux/opencode.sh"
         echo ""
         echo "Or add to PATH:"
-        echo "  export PATH=\"\$HOME/opencode:\$PATH\""
-        echo "  opencode"
+        echo "  export PATH=\"\$HOME/opencode-termux:\$PATH\""
+        echo "  opencode.sh"
 
     else
         echo "Installing OpenCode for $platform..."
