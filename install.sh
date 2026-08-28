@@ -1,141 +1,146 @@
 #!/bin/bash
-set -e
 
-# OpenCode Termux Installer
+# Termux AI Tool Installer
 # https://github.com/Yinyuan34513/opencode-termux
 
 REPO="Yinyuan34513/opencode-termux"
 RELEASE_TAG="v1.18.23-termux"
-INSTALL_DIR="${HOME}/opencode"
 PROXY="https://v4.gh-proxy.org"
 GITHUB="https://github.com"
 
-# Check if direct GitHub access works
+# TUI helpers
+HIDE_CURSOR='\033[?25l'
+SHOW_CURSOR='\033[?25h'
+BOLD='\033[1m'
+DIM='\033[2m'
+RESET='\033[0m'
+BG_BLUE='\033[44m'
+FG_WHITE='\033[97m'
+FG_GREEN='\033[92m'
+FG_GRAY='\033[90m'
+
+selected=1
+total=3
+
+draw_menu() {
+    local items=("OpenCode" "AtomCode" "Exit")
+    local descs=("AI coding agent with full TUI" "AI coding CLI for Android")
+    local icons=(">" ">" ">")
+    local w=44
+
+    printf "\033[H\033[J"
+    printf "\n"
+    printf "  ┌─%s─┐\n" "$(printf '─%.0s' $(seq 1 $w))"
+    printf "  │%*s%*s│\n" $(( (w+12)/2 )) "Termux AI Tools" $(( (w+12)/2 - w )) ""
+    printf "  ├─%s─┤\n" "$(printf '─%.0s' $(seq 1 $w))"
+    printf "  │%*s│\n" $((w+12)) ""
+    for i in 1 2 3; do
+        if [ $i -eq $selected ]; then
+            printf "  │  ${BG_BLUE}${FG_WHITE}${BOLD}  ▸ %-40s${RESET}  │\n" "${items[$((i-1))]}"
+        else
+            printf "  │  ${DIM}    %-40s${RESET}  │\n" "${items[$((i-1))]}"
+        fi
+    done
+    printf "  │%*s│\n" $((w+12)) ""
+    printf "  ├─%s─┤\n" "$(printf '─%.0s' $(seq 1 $w))"
+    printf "  │  ${FG_GRAY}↑↓ Navigate  Enter Select  q Quit${RESET}%*s│\n" $((w-22)) ""
+    printf "  └─%s─┘\n" "$(printf '─%.0s' $(seq 1 $w))"
+    printf "\n"
+}
+
 check_github() {
     if curl -s --connect-timeout 5 --max-time 10 "https://github.com" >/dev/null 2>&1; then
         BASE_URL="$GITHUB"
     else
-        echo "⚠️  Direct GitHub connection failed, using proxy: $PROXY"
+        printf "  ⚠️  Using proxy: $PROXY\n"
         BASE_URL="$PROXY/$GITHUB"
     fi
 }
 
-# Detect platform
 detect_platform() {
     if [ -n "$TERMUX_VERSION" ] || [ -n "$PREFIX" ] && echo "$PREFIX" | grep -q "com.termux"; then
         echo "termux"
-    elif [ "$(uname -s)" = "Linux" ]; then
-        echo "linux-$(uname -m)"
-    elif [ "$(uname -s)" = "Darwin" ]; then
-        echo "darwin-$(uname -m)"
     else
         echo "unknown"
     fi
 }
 
-# Check dependencies
-check_deps() {
-    local missing=""
-    for cmd in curl tar; do
-        if ! command -v "$cmd" &>/dev/null; then
-            missing="$missing $cmd"
-        fi
-    done
-    if [ -n "$missing" ]; then
-        echo "Missing dependencies:$missing"
-        if command -v pkg &>/dev/null; then
-            echo "Installing with pkg..."
-            pkg install -y curl tar zstd
-        elif command -v apt &>/dev/null; then
-            echo "Installing with apt..."
-            apt update && apt install -y curl tar zstd
-        elif command -v brew &>/dev/null; then
-            echo "Installing with brew..."
-            brew install curl tar zstd
-        else
-            echo "Please install manually: curl tar zstd"
-            exit 1
-        fi
-    fi
-}
-
-# Download and install
 install_opencode() {
     local platform=$(detect_platform)
-    echo "Detected platform: $platform"
-
-    mkdir -p "$INSTALL_DIR"
-
-    if [ "$platform" = "termux" ]; then
-        echo "Installing OpenCode for Termux/Android..."
-
-        # Use Termux-compatible temp directory
-        local tmpdir="${TMPDIR:-$HOME}"
-        mkdir -p "$tmpdir"
-
-        # Download full package (binary + ARM64 native libs)
-        echo "Downloading opencode package..."
-        curl -L "${BASE_URL}/${REPO}/releases/download/${RELEASE_TAG}/opencode-termux-full.tar.zst" \
-            -o "${tmpdir}/opencode-full.tar.zst"
-
-        # Extract
-        if command -v zstd &>/dev/null; then
-            tar xf "${tmpdir}/opencode-full.tar.zst" --zstd -C "$HOME"
-        else
-            echo "Installing zstd..."
-            pkg install -y zstd 2>/dev/null
-            tar xf "${tmpdir}/opencode-full.tar.zst" --zstd -C "$HOME"
-        fi
-        rm -f "${tmpdir}/opencode-full.tar.zst"
-
-        chmod +x "$HOME/opencode-termux/opencode" "$HOME/opencode-termux/opencode.sh"
-
-        echo "Installed to: $HOME/opencode-termux/"
-        echo ""
-        echo "Run with:"
-        echo "  ~/opencode-termux/opencode.sh"
-        echo ""
-        echo "Or add to PATH:"
-        echo "  export PATH=\"\$HOME/opencode-termux:\$PATH\""
-        echo "  opencode.sh"
-
-    else
-        echo "Installing OpenCode for $platform..."
-        local tmpdir="${TMPDIR:-$HOME}"
-        mkdir -p "$tmpdir"
-
-        # Check if platform-specific release exists, fallback to Termux bundle
-        local filename="opencode-${platform}.tar.zst"
-        local url="${BASE_URL}/${REPO}/releases/download/${RELEASE_TAG}/${filename}"
-        if ! curl -sf --connect-timeout 5 --max-time 10 -o /dev/null "$url" 2>/dev/null; then
-            echo "No pre-built binary for $platform, using Termux bundle..."
-            filename="opencode-termux-aarch64.tar.zst"
-        fi
-
-        echo "Downloading $filename..."
-        curl -L "${BASE_URL}/${REPO}/releases/download/${RELEASE_TAG}/${filename}" \
-            -o "${tmpdir}/${filename}"
-
-        echo "Extracting..."
-        if command -v zstd &>/dev/null; then
-            tar xf "${tmpdir}/${filename}" --zstd -C "$INSTALL_DIR"
-        else
-            tar xf "${tmpdir}/${filename}" -C "$INSTALL_DIR"
-        fi
-        rm -f "${tmpdir}/${filename}"
-
-        echo "Installed to: $INSTALL_DIR"
-        echo ""
-        echo "Run with:"
-        echo "  $INSTALL_DIR/opencode-termux-release/opencode"
+    if [ "$platform" != "termux" ]; then
+        echo "  Only Termux/Android supported."
+        return 1
     fi
+
+    local tmpdir="${TMPDIR:-$HOME}"
+    mkdir -p "$tmpdir"
+
+    printf "\n  ${BOLD}Downloading OpenCode...${RESET}\n"
+    curl -L --progress-bar "${BASE_URL}/${REPO}/releases/download/${RELEASE_TAG}/opencode-termux-full.tar.zst" \
+        -o "${tmpdir}/opencode-full.tar.zst"
+
+    printf "  ${BOLD}Extracting...${RESET}\n"
+    if command -v zstd &>/dev/null; then
+        tar xf "${tmpdir}/opencode-full.tar.zst" --zstd -C "$HOME"
+    else
+        pkg install -y zstd 2>/dev/null
+        tar xf "${tmpdir}/opencode-full.tar.zst" --zstd -C "$HOME"
+    fi
+    rm -f "${tmpdir}/opencode-full.tar.zst"
+    chmod +x "$HOME/opencode-termux/opencode" "$HOME/opencode-termux/opencode.sh"
+
+    printf "\n  ${FG_GREEN}${BOLD}✓ Installed to ~/opencode-termux/${RESET}\n"
+    printf "  Run: ${BOLD}~/opencode-termux/opencode.sh${RESET}\n"
 }
 
-# Main
-echo "=== OpenCode Installer ==="
-echo ""
-check_github
-check_deps
-install_opencode
-echo ""
-echo "Done! 🎉"
+install_atomcode() {
+    local platform=$(detect_platform)
+    if [ "$platform" != "termux" ]; then
+        echo "  Only Termux/Android supported."
+        return 1
+    fi
+
+    local tmpdir="${TMPDIR:-$HOME}"
+    mkdir -p "$tmpdir"
+
+    printf "\n  ${BOLD}Downloading AtomCode...${RESET}\n"
+    curl -L --progress-bar "${BASE_URL}/${REPO}/releases/download/${RELEASE_TAG}/atomcode" \
+        -o "${tmpdir}/atomcode"
+
+    chmod +x "${tmpdir}/atomcode"
+    mkdir -p "$HOME/.local/bin"
+    mv "${tmpdir}/atomcode" "$HOME/.local/bin/atomcode"
+
+    printf "\n  ${FG_GREEN}${BOLD}✓ Installed to ~/.local/bin/atomcode${RESET}\n"
+    printf "  Run: ${BOLD}~/atomcode${RESET}\n"
+}
+
+# Setup terminal
+stty_old=$(stty -g 2>/dev/null || true)
+printf "$HIDE_CURSOR"
+trap 'printf "$SHOW_CURSOR"; stty "$stty_old" 2>/dev/null; exit' INT TERM
+
+while true; do
+    draw_menu
+    read -rsn1 key
+
+    case "$key" in
+        $'\x1b')
+            read -rsn2 key2
+            case "$key2" in
+                '[A') [ $selected -gt 1 ] && selected=$((selected-1)) ;;
+                '[B') [ $selected -lt $total ] && selected=$((selected+1)) ;;
+            esac
+            ;;
+        '')
+            case $selected in
+                1) check_github; install_opencode ;;
+                2) check_github; install_atomcode ;;
+                3) printf "$SHOW_CURSOR"; exit 0 ;;
+            esac
+            echo ""
+            read -p "  Press Enter to continue..."
+            ;;
+        q|Q) printf "$SHOW_CURSOR"; exit 0 ;;
+    esac
+done
