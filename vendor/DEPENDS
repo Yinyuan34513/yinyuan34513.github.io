@@ -1,0 +1,8 @@
+# CDeep 软件包元数据 (bash-5.3)
+Name: bash
+Version: 5.3
+Type: binary
+Arch: x86_64
+Maintainer: lab@deepfurry.space
+Description: GNU Bourne Again SHell (自编译 5.3)
+Depends: glibc (>= 2.34), readline (>= 8.0)

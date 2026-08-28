@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FreeCoding - 腾讯扣叮编辑器</title>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        background: #ECF7FF; /* 扣叮蓝工作区 */
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    #app {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    /* 加载动画 */
+    #boot-loading {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #ECF7FF;
+        z-index: 9999;
+        transition: opacity .3s;
+    }
+    #boot-loading .spinner {
+        width: 48px;
+        height: 48px;
+        border: 4px solid rgba(0, 129, 239, .2);
+        border-top-color: #0081EF;
+        border-radius: 50%;
+        animation: spin 0.9s linear infinite;
+    }
+    #boot-loading p {
+        margin-top: 16px;
+        color: #0081EF;
+        font-size: 14px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+    <div id="boot-loading">
+        <div class="spinner"></div>
+        <p>FreeCoding 编辑器加载中…</p>
+    </div>
+    <!-- 扣叮编辑器挂载根节点 -->
+    <div id="app"></div>
+
+    <!-- 1. webpack runtime -->
+    <script src="vendor/runtime.43302e3ecf1fd4923b40.js"></script>
+    <!-- 2. 核心依赖 -->
+    <script src="vendor/react.a80ab124a42136cf0816.js"></script>
+    <script src="vendor/vendors.5035cd22e77914a9f363.js"></script>
+    <script src="vendor/vendor.970d3b56bc349413bd45.js"></script>
+    <script src="vendor/stage-editor-vendor.6116675d8d0cb0cb4611.js"></script>
+    <script src="vendor/kitten.99f88a64d495cf0e79d0.js"></script>
+    <!-- 3. 业务组件 -->
+    <script src="vendor/ec-components.5291380232e25050c42d.js"></script>
+    <script src="vendor/eui.e7451ae801d6594eafac.js"></script>
+    <script src="vendor/easycode.3afcde9ff56f7e01b084.js"></script>
+    <script src="vendor/app.9d7c46ff5f99e94b8f1c.js"></script>
+    <script src="vendor/SoundEditor.7bfa0c9bb28d0fd02f59.js"></script>
+    <script src="vendor/scratch3_music_manifest.a1ada5099045e337c240.js"></script>
+    <!-- 4. 异步 chunk -->
+    <script src="vendor/36.588b10f9f832eb8cf934.js"></script>
+    <script src="vendor/72.d0c8e590841d585ca222.js"></script>
+    <script src="vendor/73.04a112a110855e63b496.js"></script>
+    <script src="vendor/77.79dad0a4712bd232538c.js"></script>
+    <script src="vendor/80.d10abbe101f61f1643c5.js"></script>
+    <script src="vendor/82.9ff470ba098b7f945259.js"></script>
+    <!-- 5. 主入口（最后加载，触发挂载） -->
+    <script src="vendor/main.f0e36c2cb2e5be4b241c.js"></script>
+
+    <script>
+        // 挂载完成后隐藏加载层
+        window.addEventListener('load', function () {
+            var boot = document.getElementById('boot-loading');
+            if (boot) {
+                boot.style.opacity = '0';
+                setTimeout(function () { boot.remove(); }, 400);
+            }
+        });
+    </script>
+</body>
+</html>
