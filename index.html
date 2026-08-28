@@ -64,7 +64,7 @@
             console.log('fzstd 加载成功，支持 Zstandard (.zst) 解压');
         } catch (error) {
             console.warn('fzstd 加载失败，.zst 文件将无法解压:', error.message);
-        }</script><script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgenjs.bundle.js"></script><script src="https://cdn.bootcdn.net/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script><script src="https://cdn.jsdelivr.net/npm/hls.js@1.6.15/dist/hls.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/dashjs/5.0.3/legacy/umd/dash.all.min.js"></script><script>// 库加载状态检测
+        }</script><script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/lib/marked.umd.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgenjs.bundle.js"></script><script src="https://cdn.bootcdn.net/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script><script src="https://cdn.jsdelivr.net/npm/hls.js@1.6.15/dist/hls.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/dashjs/5.0.3/legacy/umd/dash.all.min.js"></script><script>// 库加载状态检测
         const LibsStatus = {
             three: typeof THREE !== 'undefined',
             xlsx: typeof XLSX !== 'undefined',
@@ -3438,7 +3438,9 @@
         .dark\:text-gray-400:is(.dark *){--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}
         .dark\:hover\:bg-gray-700:hover:is(.dark *){--tw-bg-opacity:1;background-color:rgb(55 65 81 / var(--tw-bg-opacity, 1))}
         .dark\:hover\:text-gray-300:hover:is(.dark *){--tw-text-opacity:1;color:rgb(209 213 219 / var(--tw-text-opacity, 1))}
-        @media (min-width: 640px){.sm\:flex-row{flex-direction:row}}</style></head><body class="bg-gray-100 dark:bg-darker text-gray-900 dark:text-gray-100 h-screen flex flex-col"><header class="bg-white dark:bg-dark shadow-md z-10"><div class="container mx-auto px-4 py-3 flex items-center justify-between"><div class="flex items-center gap-3"><h1 class="text-xl font-bold text-primary"><i class="fa fa-picture-o mr-2"></i><span data-i18n="appTitleShort">专业媒体查看器</span></h1><span class="text-sm text-gray-500 dark:text-gray-400" data-i18n="supportedFormatsShort">支持RAW/NEF/IAW/Minecraft皮肤/Office/3D</span></div><div class="flex items-center gap-2 flex-wrap"><button id="openFileBtn" class="btn btn-primary"><i class="fa fa-file-image-o"></i> <span data-i18n="images">图片</span></button> <button id="openFolderBtn" class="btn btn-primary"><i class="fa fa-folder-open"></i> <span data-i18n="folder">文件夹</span></button> <button id="openVideoBtn" class="btn btn-secondary"><i class="fa fa-video-camera"></i> <span data-i18n="videos">视频</span></button> <button id="openAudioBtn" class="btn btn-secondary"><i class="fa fa-music"></i> <span data-i18n="music">音频</span></button> <button id="open3DVideoBtn" class="btn btn-secondary"><i class="fa fa-cube"></i> <span data-i18n="video3D">3D视频</span></button> <button id="open3DModelBtn" class="btn btn-secondary"><i class="fa fa-cubes"></i> <span data-i18n="model3D">3D模型</span></button><div class="relative group"><button id="openOfficeBtn" class="btn btn-secondary"><i class="fa fa-file-text"></i> <span data-i18n="office">Office</span> <i class="fa fa-caret-down ml-1"></i></button><div class="absolute top-full left-0 mt-1 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-600 hidden group-hover:block z-50 min-w-[120px]"><button id="openWordBtn" class="w-full px-4 py-2 text-left hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2 text-sm"><i class="fa fa-file-word-o text-blue-500"></i> <span data-i18n="word">Word</span></button> <button id="openExcelBtn" class="w-full px-4 py-2 text-left hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2 text-sm"><i class="fa fa-file-excel-o text-green-500"></i> <span data-i18n="excel">Excel</span></button> <button id="openPPTBtn" class="w-full px-4 py-2 text-left hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2 text-sm"><i class="fa fa-file-powerpoint-o text-orange-500"></i> <span data-i18n="ppt">PPT</span></button></div></div><button id="openArchiveBtn" class="btn btn-secondary"><i class="fa fa-file-archive-o"></i> <span data-i18n="archive">压缩包</span></button> <button id="openScratchBtn" class="btn btn-secondary"><i class="fa fa-gamepad"></i> <span data-i18n="scratch">Scratch</span></button> <button id="settingsBtn" class="btn btn-outline" data-i18n-title="settings"><i class="fa fa-cog"></i></button> <button id="themeToggleBtn" class="btn btn-outline" data-i18n-title="toggleTheme"><i class="fa fa-moon-o dark:hidden"></i> <i class="fa fa-sun-o hidden dark:inline"></i></button></div></div></header><main class="flex-1 flex overflow-hidden"><aside class="w-64 bg-gray-50 dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col"><div class="flex border-b border-gray-200 dark:border-gray-700"><button id="tabImages" class="tab-btn active flex-1"><i class="fa fa-image mr-1"></i><span data-i18n="images">图片</span></button> <button id="tabVideos" class="tab-btn flex-1"><i class="fa fa-video-camera mr-1"></i><span data-i18n="videos">视频</span></button> <button id="tabSkins" class="tab-btn flex-1"><i class="fa fa-user mr-1"></i><span data-i18n="skins">皮肤</span></button> <button id="tabArchives" class="tab-btn flex-1"><i class="fa fa-file-archive-o mr-1"></i><span data-i18n="archive">压缩包</span></button> <button id="tabScratch" class="tab-btn flex-1"><i class="fa fa-gamepad mr-1"></i><span data-i18n="scratch">Scratch</span></button></div><div id="imagesPanel" class="flex-1 flex flex-col"><div class="p-4 border-b border-gray-200 dark:border-gray-700"><h2 class="font-semibold mb-2 flex items-center"><i class="fa fa-folder mr-2"></i><span data-i18n="folder">文件夹</span></h2><div id="folderPath" class="text-sm text-gray-500 dark:text-gray-400 truncate mb-2" data-i18n="localVideos">本地视频</div><input type="file" id="folderInput" webkitdirectory="" directory="" multiple="" class="hidden"> <input type="file" id="openVideoInput" multiple="" class="hidden" accept="video/*,.mp4,.webm,.ogv,.mov,.avi,.mkv,.m4v"> <input type="file" id="openAudioInput" multiple="" class="hidden" accept="audio/*,.mp3,.wav,.ogg,.oga,.flac,.aac,.m4a,.wma,.ape,.alac,.opus"> <input type="file" id="openLrcInput" multiple="" class="hidden" accept=".lrc"> <input type="file" id="open3DVideoInput" multiple="" class="hidden" accept="video/*,.mp4,.mkv,.avi,.mov"> <input type="file" id="open3DModelInput" multiple="" class="hidden" accept=".glb,.gltf,.obj,.fbx,.stl,.dae,.3ds"> <input type="file" id="openWordInput" multiple="" class="hidden" accept=".doc,.docx,.rtf,.odt"> <input type="file" id="openExcelInput" multiple="" class="hidden" accept=".xls,.xlsx,.csv,.ods"> <input type="file" id="openPPTInput" multiple="" class="hidden" accept=".ppt,.pptx,.odp"> <input type="file" id="openArchiveInput" multiple="" class="hidden" accept=".zip,.7z,.rar,.tar,.gz"> <input type="file" id="openScratchInput" multiple="" class="hidden" accept=".sb,.sb2,.sb3,.sprite3"></div><div id="unsavedPanel" class="border-b border-gray-200 dark:border-gray-700 hidden"><div class="p-2 flex justify-between items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" onclick="toggleUnsavedPanel()"><h3 class="font-semibold text-sm flex items-center"><i class="fa fa-clock-o mr-2 text-orange-500"></i>未保存 <span id="unsavedCount" class="ml-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white text-xs px-2 py-0.5 rounded-full shadow">0</span></h3><div class="flex items-center gap-2"><button id="clearAllUnsavedBtn" class="text-xs text-gray-400 hover:text-red-500 transition-colors hidden" onclick="event.stopPropagation(); clearAllUnsavedImages();" title="清空全部"><i class="fa fa-trash"></i></button> <i id="unsavedToggleIcon" class="fa fa-chevron-down text-gray-400 transition-transform"></i></div></div><div id="unsavedList" class="max-h-48 overflow-y-auto scrollbar-thin scrollbar-dark"></div></div><div class="flex-1 overflow-y-auto scrollbar-thin scrollbar-dark p-2" style="cursor: grab;"><div class="flex justify-between items-center p-2"><h2 class="font-semibold">缩略图</h2><div class="flex gap-1 items-center"><button id="viewCardBtn" class="view-toggle-btn active" title="卡片视图"><i class="fa fa-th-large"></i></button> <button id="viewListBtn" class="view-toggle-btn" title="列表视图"><i class="fa fa-list"></i></button> <span class="mx-2 text-gray-600">|</span> <button id="thumbnailSizeDecrease" class="btn btn-sm btn-outline"><i class="fa fa-minus"></i></button> <button id="thumbnailSizeIncrease" class="btn btn-sm btn-outline"><i class="fa fa-plus"></i></button></div></div><div id="thumbnailsContainer" class="grid grid-cols-2 gap-2"><div class="col-span-2 text-center text-gray-500 dark:text-gray-400 py-8"><i class="fa fa-image text-4xl mb-2 opacity-50"></i><p>暂无图片</p><p class="text-xs mt-1">点击上方按钮或拖拽文件打开</p></div></div></div></div><div id="videosPanel" class="flex-1 flex-col hidden"><div class="p-4 border-b border-gray-200 dark:border-gray-700"><h2 class="font-semibold mb-2 flex items-center"><i class="fa fa-video-camera mr-2"></i>视频列表</h2><div class="text-sm text-gray-500 dark:text-gray-400 truncate mb-2" id="videoListInfo">点击上方"打开视频"按钮添加视频</div></div><div class="p-4 border-b border-gray-200 dark:border-gray-700"><h3 class="font-semibold mb-2 text-sm flex items-center"><i class="fa fa-link mr-2"></i>网络视频</h3><div class="space-y-2"><input id="httpVideoUrlInput" class="input-field w-full text-sm" placeholder="输入视频URL (支持HLS/DASH/MP4)"><div class="flex gap-2"><button id="loadHttpVideoBtn" class="btn btn-primary btn-sm flex-1"><i class="fa fa-play"></i>播放</button> <button id="clearHttpVideoBtn" class="btn btn-outline btn-sm"><i class="fa fa-times"></i></button></div><div class="text-xs text-gray-500 dark:text-gray-400"><p>支持格式：</p><ul class="list-disc list-inside mt-1"><li>HTTP直链 (MP4/WebM/MOV等)</li><li>HLS流媒体 (.m3u8)</li><li>DASH流媒体 (.mpd)</li></ul></div></div></div><div id="hdrStatusPanel" class="p-2 bg-gray-100 dark:bg-gray-700 text-xs hidden"><div class="flex items-center justify-between"><span id="hdrStatusText">SDR模式</span> <span id="videoQualityText">-</span></div></div><div class="flex-1 overflow-y-auto scrollbar-thin scrollbar-dark p-2"><div id="videoThumbnailsContainer" class="grid grid-cols-2 gap-2"><div class="col-span-2 text-center text-gray-500 dark:text-gray-400 py-8"><i class="fa fa-video-camera text-4xl mb-2 opacity-50"></i><p>暂无视频</p><p class="text-xs mt-1">支持 MP4, WebM, MOV, AVI, MKV</p></div></div></div></div><div id="skinsPanel" class="flex-1 flex-col hidden"><div class="p-4 border-b border-gray-200 dark:border-gray-700"><h2 class="font-semibold mb-2 flex items-center"><i class="fa fa-user mr-2"></i>皮肤查看器</h2><div class="space-y-2"><input id="skinUrlInput" class="input-field w-full text-sm" placeholder="皮肤URL或玩家名"> <button id="loadSkinBtn" class="btn btn-primary btn-sm w-full"><i class="fa fa-download"></i>加载皮肤</button> <input type="file" id="skinFileInput" accept="image/png" class="hidden"> <button id="uploadSkinBtn" class="btn btn-outline btn-sm w-full"><i class="fa fa-upload"></i>上传皮肤文件</button></div></div><div class="p-4 overflow-y-auto scrollbar-thin scrollbar-dark"><h3 class="font-semibold mb-3">渲染设置</h3><div class="space-y-3"><div><label class="block text-sm mb-1">模型类型</label> <select id="skinModelType" class="input-field w-full text-sm"><option value="classic">经典 (4px手臂)</option><option value="slim">纤细 (3px手臂)</option></select></div><div class="flex items-center justify-between"><label for="skinAutoRotate" class="text-sm">自动旋转</label> <input type="checkbox" id="skinAutoRotate" checked="" class="w-4 h-4"></div><div class="flex items-center justify-between"><label for="skinShowCape" class="text-sm">显示披风</label> <input type="checkbox" id="skinShowCape" class="w-4 h-4"></div></div><h3 class="font-semibold mt-4 mb-3">动画</h3><div class="grid grid-cols-2 gap-2"><button class="animation-btn btn btn-outline btn-sm" data-anim="idle"><i class="fa fa-user"></i>待机</button> <button class="animation-btn btn btn-outline btn-sm" data-anim="walk"><i class="fa fa-walking"></i>行走</button> <button class="animation-btn btn btn-outline btn-sm" data-anim="run"><i class="fa fa-running"></i>奔跑</button> <button class="animation-btn btn btn-outline btn-sm" data-anim="fly"><i class="fa fa-paper-plane"></i>飞行</button></div><h3 class="font-semibold mt-4 mb-3">2D导出</h3><div class="space-y-2"><button id="exportAvatarBtn" class="btn btn-outline btn-sm w-full"><i class="fa fa-download"></i>导出头像</button> <button id="exportFullBodyBtn" class="btn btn-outline btn-sm w-full"><i class="fa fa-download"></i>导出全身像</button></div><h3 class="font-semibold mt-4 mb-3">查看选项</h3><div class="space-y-2"><button id="viewAsImageBtn" class="btn btn-outline btn-sm w-full"><i class="fa fa-image"></i>查看原图 (2D)</button></div></div></div><div id="archivesPanel" class="flex-1 flex-col hidden"><div class="p-4 border-b border-gray-200 dark:border-gray-700"><h2 class="font-semibold mb-2 flex items-center"><i class="fa fa-file-archive-o mr-2"></i><span data-i18n="archive">压缩包</span></h2><div id="archiveInfo" class="text-sm text-gray-500 dark:text-gray-400 truncate mb-2">点击上方"压缩包"按钮打开 ZIP/7Z 文件</div></div><div class="flex-1 overflow-y-auto scrollbar-thin scrollbar-dark p-2"><div id="archiveTree" class="space-y-1"><div class="text-center text-gray-500 dark:text-gray-400 py-8"><i class="fa fa-file-archive-o text-4xl mb-2 opacity-50"></i><p data-i18n="noArchiveLoaded">暂未加载压缩包</p><p class="text-xs mt-1" data-i18n="openArchiveHint">点击上方按钮或拖拽文件打开</p></div></div></div></div></aside><div class="flex-1 flex flex-col bg-gray-900"><div id="imageTabsBar" class="bg-gray-800 px-2 py-1 flex items-center overflow-x-auto hidden" style="min-height: 36px;"><div id="imageTabsContainer" class="flex items-center flex-1"></div><div id="splitControls" class="flex items-center gap-1 ml-2 hidden"><button id="exitSplitBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-red-600" title="退出分屏"><i class="fa fa-times"></i> 退出分屏</button></div></div><div id="imageToolbar" class="bg-gray-800 text-white p-2 flex justify-between items-center hidden"><div class="flex gap-2"><button id="prevImageBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700" disabled=""><i class="fa fa-chevron-left"></i> <span data-i18n="prevImage">上一张</span></button> <button id="nextImageBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700" disabled=""><span data-i18n="nextImage">下一张</span> <i class="fa fa-chevron-right"></i></button></div><div class="flex gap-2"><div class="tooltip"><button id="zoomOutBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-search-minus"></i></button> <span class="tooltip-text" data-i18n="zoomOut">缩小</span></div><div class="tooltip"><button id="zoomResetBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-refresh"></i></button> <span class="tooltip-text" data-i18n="resetZoom">重置缩放</span></div><div class="tooltip"><button id="zoomInBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-search-plus"></i></button> <span class="tooltip-text" data-i18n="zoomIn">放大</span></div><div class="tooltip"><button id="autoFitBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-expand"></i></button> <span class="tooltip-text" data-i18n="autoFit">自动适应</span></div><span id="zoomDisplay" class="text-white text-sm px-2 py-1 bg-gray-700 rounded min-w-[50px] text-center">100%</span></div><div class="flex gap-2"><div class="tooltip"><button id="rotateLeftBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-rotate-left"></i></button> <span class="tooltip-text" data-i18n="rotateLeft">向左旋转</span></div><div class="tooltip"><button id="rotateRightBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-rotate-right"></i></button> <span class="tooltip-text" data-i18n="rotateRight">向右旋转</span></div><div class="tooltip"><button id="flipHorizontalBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-arrows-h"></i></button> <span class="tooltip-text" data-i18n="flipHorizontal">水平翻转</span></div><div class="tooltip"><button id="flipVerticalBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-arrows-v"></i></button> <span class="tooltip-text" data-i18n="flipVertical">垂直翻转</span></div></div><div class="flex gap-2"><div class="tooltip"><button id="cropBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-crop"></i></button> <span class="tooltip-text" data-i18n="crop">裁剪</span></div><div class="tooltip"><button id="adjustBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-sliders"></i></button> <span class="tooltip-text" data-i18n="adjust">调整</span></div><div class="tooltip"><button id="filterBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-magic"></i></button> <span class="tooltip-text" data-i18n="filter">滤镜</span></div><div class="tooltip"><button id="compareBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-columns"></i></button> <span class="tooltip-text" data-i18n="compareImages">图片比较</span></div><div class="tooltip"><button id="exifBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-info-circle"></i></button> <span class="tooltip-text" data-i18n="exifInfo">EXIF信息</span></div><div class="tooltip"><button id="saveBtn" class="btn btn-sm btn-primary"><i class="fa fa-save"></i> <span data-i18n="save">保存</span></button> <span class="tooltip-text">保存图片</span></div></div></div><div id="skinToolbar" class="bg-gray-800 text-white p-2 justify-between items-center hidden"><div class="flex gap-2"><button id="skinZoomOutBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-search-minus"></i></button> <button id="skinZoomResetBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-refresh"></i></button> <button id="skinZoomInBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-search-plus"></i></button></div><div class="flex items-center gap-4"><span id="skinStatus" class="text-sm text-gray-400">就绪</span></div></div><div class="flex-1 relative overflow-hidden" id="imageViewerContainer" style="background-color: #1F2937;"><div id="splitIndicator" class="split-indicator"></div><div id="mainViewContainer" class="absolute inset-0"><div id="loadingIndicator" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20 hidden" style="pointer-events: none;"><div class="flex flex-col items-center"><div class="loading-spinner"></div><p class="text-white mt-2" id="loadingText">正在加载...</p></div></div><canvas id="imageCanvas" class="absolute inset-0 hidden"></canvas><canvas id="skinCanvas" class="absolute inset-0 hidden"></canvas><div id="pdfContainer" class="absolute inset-0 hidden overflow-auto bg-gray-900"><canvas id="pdfCanvas" class="mx-auto shadow-2xl"></canvas><div id="pdfControls" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center gap-2 bg-black bg-opacity-70 px-4 py-2 rounded-lg"><button id="pdfPrevPage" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-chevron-left"></i></button> <span class="text-white text-sm"><span id="pdfCurrentPage">1</span> / <span id="pdfTotalPages">1</span> </span><button id="pdfNextPage" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-chevron-right"></i></button><div class="w-px h-6 bg-gray-600 mx-2"></div><button id="pdfZoomIn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-search-plus"></i></button> <button id="pdfZoomOut" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-search-minus"></i></button> <span id="pdfZoomDisplay" class="text-white text-sm min-w-[50px] text-center">100%</span></div></div><div id="videoContainer" class="absolute inset-0 bg-black overflow-hidden hidden"><div id="videoWrapper" class="absolute inset-0"><canvas id="webgpuVideoCanvas" class="absolute inset-0 w-full h-full hidden"></canvas><div id="customVideoPlayer" class="custom-video-player"><video id="videoPlayer" playsinline="" disablepictureinpicture="" controlslist="nodownload nofullscreen noremoteplayback"></video><div class="absolute inset-0 z-5 hidden" id="videoMask"></div><div class="video-big-play" id="videoBigPlay"><i class="fa fa-play"></i></div><div class="video-loading hidden" id="videoLoading"><div class="loading-spinner"></div></div><div class="video-subtitle" id="videoSubtitle" style="display: none;"><span class="video-subtitle-text" id="videoSubtitleText"></span></div><div class="video-controls"><div class="video-progress-container" id="videoProgress"><div class="video-progress-buffer" id="videoBuffer" style="width: 0%;"></div><div class="video-progress-played" id="videoPlayed" style="width: 0%;"></div><div class="video-progress-handle" id="videoHandle" style="left: 0%;"></div><div class="video-progress-preview" id="videoProgressPreview" style="left: 0%;">00:00</div></div><div class="video-controls-row"><button class="video-btn" id="videoPlayBtn" data-i18n-title="playPause"><i class="fa fa-pause"></i></button><div class="volume-control"><button class="video-btn" id="videoVolumeBtn" data-i18n-title="mute"><i class="fa fa-volume-up"></i></button> <input type="range" class="volume-slider" id="videoVolumeSlider" min="0" max="1" step="0.1" value="1"></div><span class="video-time"><span id="videoCurrentTime">17:43</span> <span>/ </span><span id="videoDuration">30:30</span> </span><select class="playback-speed" id="videoSpeed"><option value="0.5">0.5x</option><option value="1" selected="">1x</option><option value="1.25">1.25x</option><option value="1.5">1.5x</option><option value="2">2x</option></select></div><div class="video-controls-row video-transform-row"><button class="video-btn" id="videoZoomOutBtn" data-i18n-title="zoomOut"><i class="fa fa-search-minus"></i></button> <button class="video-btn" id="videoZoomResetBtn" data-i18n-title="reset"><i class="fa fa-compress"></i></button> <button class="video-btn" id="videoZoomInBtn" data-i18n-title="zoomIn"><i class="fa fa-search-plus"></i></button> <span class="video-zoom-value" id="videoZoomValue">100%</span><div class="video-divider"></div><button class="video-btn" id="videoRotateLeftBtn" data-i18n-title="rotateLeft"><i class="fa fa-rotate-left"></i></button> <button class="video-btn" id="videoRotateRightBtn" data-i18n-title="rotateRight"><i class="fa fa-rotate-right"></i></button><div class="video-divider"></div><button class="video-btn" id="videoFlipHBtn" data-i18n-title="flipHorizontal"><i class="fa fa-arrows-h"></i></button> <button class="video-btn" id="videoFlipVBtn" data-i18n-title="flipVertical"><i class="fa fa-arrows-v"></i></button><div class="video-divider"></div><div class="subtitle-upload-btn"><button class="video-btn" id="videoSubtitleBtn" data-i18n-title="loadSubtitle"><i class="fa fa-closed-captioning"></i></button> <input type="file" id="subtitleFileInput" accept=".srt,.vtt"></div><button class="video-btn" id="videoSubtitleToggle" data-i18n-title="toggleSubtitle" style="opacity:0.4"><i class="fa fa-cc"></i></button></div></div></div></div></div><div id="audioContainer" class="absolute inset-0 hidden overflow-hidden"><div class="audio-player-new"><div class="audio-bg-blur" id="audioBgBlur"></div><div class="audio-main-content"><div class="audio-left-panel"><div class="audio-cover-container"><div class="audio-cover" id="audioCover"><i class="fa fa-music"></i> <img id="audioCoverImg" class="audio-cover-img hidden" alt="封面"></div><div class="audio-cover-ring" id="audioCoverRing"></div></div><div class="audio-song-info"><div class="audio-title" id="audioTitle" data-i18n="notPlaying">未播放</div><div class="audio-artist" id="audioArtist" data-i18n="selectAudioToPlay">选择音频文件开始播放</div><div class="audio-album" id="audioAlbum"></div></div><div class="audio-controls"><button class="audio-ctrl-btn" id="audioPrevBtn" data-i18n-title="prevTrack"><i class="fa fa-step-backward"></i></button> <button class="audio-ctrl-btn play-btn" id="audioPlayBtn" data-i18n-title="playPause"><i class="fa fa-play"></i></button> <button class="audio-ctrl-btn" id="audioNextBtn" data-i18n-title="nextTrack"><i class="fa fa-step-forward"></i></button></div><div class="audio-progress-wrapper"><span class="audio-time-small" id="audioCurrentTime">0:00</span><div class="audio-progress" id="audioProgress"><div class="audio-progress-bar" id="audioPlayed"></div><div class="audio-progress-handle" id="audioHandle"></div></div><span class="audio-time-small" id="audioDuration">0:00</span></div><div class="audio-volume-row"><button class="audio-vol-btn" id="audioVolumeBtn" data-i18n-title="mute"><i class="fa fa-volume-up"></i></button> <input type="range" class="audio-vol-slider" id="audioVolumeSlider" min="0" max="1" step="0.1" value="1"> <select class="audio-speed" id="audioSpeed"><option value="0.5">0.5x</option><option value="0.75">0.75x</option><option value="1" selected="">1x</option><option value="1.25">1.25x</option><option value="1.5">1.5x</option><option value="2">2x</option></select> <button class="audio-vol-btn" id="audioLoopBtn" data-i18n-title="loopPlay" style="opacity:0.5"><i class="fa fa-repeat"></i></button></div></div><div class="audio-right-panel" id="lyricsContainer"><div class="lyrics-header"><i class="fa fa-microphone"></i> <span data-i18n="lyrics">歌词</span><div class="lyrics-actions"><label class="lyrics-upload-btn" data-i18n-title="loadExternalLyrics"><i class="fa fa-upload"></i> <input type="file" id="lrcFileInput" accept=".lrc" class="hidden"></label> <button id="toggleLyricsBtn" data-i18n-title="toggleLyrics"><i class="fa fa-eye"></i></button></div></div><div class="lyrics-scroll" id="lyricsScroll"><div class="lyrics-empty" id="lyricsEmpty"><i class="fa fa-microphone-slash"></i> <span data-i18n="noLyrics">暂无歌词</span><div class="lyrics-hint" data-i18n="lyricsHint">点击上传 .lrc 歌词文件，或播放含嵌入歌词的音频</div></div></div></div></div><div class="audio-playlist-drawer" id="audioPlaylist"><div class="playlist-header"><h3><i class="fa fa-list-ul mr-2"></i><span data-i18n="playlist">播放列表</span></h3><div class="playlist-actions"><label class="playlist-add-btn" data-i18n-title="addAudio"><i class="fa fa-plus"></i> <input type="file" id="addAudioInput" multiple="" accept="audio/*" class="hidden"></label> <button id="clearPlaylistBtn" data-i18n-title="clearList"><i class="fa fa-trash"></i></button> <button id="closePlaylistBtn" data-i18n-title="close"><i class="fa fa-times"></i></button></div></div><div class="playlist-content" id="playlistContent"><div class="playlist-empty"><i class="fa fa-music"></i> <span data-i18n="playlistEmpty">播放列表为空</span></div></div></div><div class="audio-bottom-bar"><button class="bottom-btn" id="audioPlaylistBtn" data-i18n-title="playlist"><i class="fa fa-list-ul"></i></button> <button class="bottom-btn" id="audioShuffleBtn" data-i18n-title="shufflePlay" style="opacity:0.5"><i class="fa fa-random"></i></button><div class="bottom-info" id="audioFileInfo"></div></div></div></div></div><div id="splitViewContainer" class="absolute inset-0 hidden"></div><div id="cropOverlay" class="crop-overlay hidden"><div id="cropArea" class="crop-area"><div class="crop-handle tl"></div><div class="crop-handle tr"></div><div class="crop-handle bl"></div><div class="crop-handle br"></div></div><div class="absolute bottom-4 right-4 flex gap-2"><button id="cancelCropBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><span data-i18n="cancel">取消</span></button> <button id="applyCropBtn" class="btn btn-sm btn-primary"><span data-i18n="apply">应用</span></button></div></div><div id="adjustPanel" class="absolute top-4 right-4 w-64 glass-effect rounded-lg p-4 hidden z-10"><div class="flex justify-between items-center mb-4"><h3 class="font-semibold">调整</h3><button id="closeAdjustBtn" class="text-gray-500 hover:text-white"><i class="fa fa-times"></i></button></div><div class="space-y-4"><div><label class="flex justify-between"><span>亮度</span> <span id="brightnessValue">0</span></label> <input type="range" id="brightnessSlider" class="slider" min="-100" max="100" value="0"></div><div><label class="flex justify-between"><span>对比度</span> <span id="contrastValue">0</span></label> <input type="range" id="contrastSlider" class="slider" min="-100" max="100" value="0"></div><div><label class="flex justify-between"><span>饱和度</span> <span id="saturationValue">0</span></label> <input type="range" id="saturationSlider" class="slider" min="-100" max="100" value="0"></div><div class="pt-2 flex justify-end"><button id="resetAdjustmentsBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700">重置</button></div></div></div><div id="filterPanel" class="absolute top-4 right-4 w-72 glass-effect rounded-lg p-4 hidden z-10"><div class="flex justify-between items-center mb-4"><h3 class="font-semibold"><i class="fa fa-magic mr-2"></i>滤镜效果</h3><button id="closeFilterBtn" class="text-gray-500 hover:text-white"><i class="fa fa-times"></i></button></div><div class="grid grid-cols-3 gap-2 mb-4"><button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="none"><i class="fa fa-ban text-lg mb-1"></i><div class="text-xs">原图</div></button> <button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="grayscale"><i class="fa fa-adjust text-lg mb-1"></i><div class="text-xs">黑白</div></button> <button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="sepia"><i class="fa fa-camera-retro text-lg mb-1"></i><div class="text-xs">复古</div></button> <button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="invert"><i class="fa fa-exchange text-lg mb-1"></i><div class="text-xs">反色</div></button> <button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="blur"><i class="fa fa-tint text-lg mb-1"></i><div class="text-xs">模糊</div></button> <button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="sharpen"><i class="fa fa-diamond text-lg mb-1"></i><div class="text-xs">锐化</div></button> <button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="emboss"><i class="fa fa-cube text-lg mb-1"></i><div class="text-xs">浮雕</div></button> <button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="vintage"><i class="fa fa-film text-lg mb-1"></i><div class="text-xs">怀旧</div></button> <button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="warm"><i class="fa fa-sun-o text-lg mb-1"></i><div class="text-xs">暖色</div></button> <button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="cool"><i class="fa fa-snowflake-o text-lg mb-1"></i><div class="text-xs">冷色</div></button> <button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="vignette"><i class="fa fa-circle-o text-lg mb-1"></i><div class="text-xs">暗角</div></button> <button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="posterize"><i class="fa fa-paint-brush text-lg mb-1"></i><div class="text-xs">海报</div></button></div><div class="border-t border-gray-600 pt-3"><label class="flex justify-between text-sm mb-2"><span>滤镜强度</span> <span id="filterIntensityValue">100%</span></label> <input type="range" id="filterIntensitySlider" class="slider" min="0" max="100" value="100"></div></div><div id="exifPanel" class="absolute top-4 right-4 w-80 glass-effect rounded-lg p-4 hidden z-10 max-h-96 overflow-y-auto"><div class="flex justify-between items-center mb-4"><h3 class="font-semibold"><i class="fa fa-info-circle mr-2"></i>EXIF 信息</h3><button id="closeExifBtn" class="text-gray-500 hover:text-white"><i class="fa fa-times"></i></button></div><div id="exifContent" class="space-y-2 text-sm"><div class="text-gray-400 text-center py-4"><i class="fa fa-camera text-3xl mb-2 opacity-50"></i><p>加载图片后显示EXIF信息</p></div></div></div><div id="comparePanel" class="absolute inset-0 hidden z-20"><div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-90"><div class="relative w-full h-full" id="compareContainer"></div><div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-800 rounded-lg px-4 py-2 flex items-center gap-4 z-30"><span class="text-white text-sm">比较模式</span><div class="flex gap-2"><button id="compareSlideBtn" class="btn btn-sm btn-primary"><i class="fa fa-arrows-h mr-1"></i>滑动</button> <button id="compareOverlayBtn" class="btn btn-sm btn-outline text-white border-gray-600"><i class="fa fa-adjust mr-1"></i>叠加</button> <button id="compareSideBySideBtn" class="btn btn-sm btn-outline text-white border-gray-600"><i class="fa fa-columns mr-1"></i>并排</button></div><select id="compareImageSelect" class="bg-gray-700 text-white text-sm rounded px-2 py-1"><option value="">选择比较图片...</option></select> <button id="closeCompareBtn" class="text-gray-400 hover:text-white ml-2"><i class="fa fa-times"></i></button></div></div></div><div id="initialPrompt" class="absolute inset-0 flex flex-col items-center justify-center text-white" style="pointer-events: none;"><i class="fa fa-image text-5xl mb-4 opacity-50"></i><h2 class="text-2xl font-bold mb-2">专业媒体查看器</h2><p class="text-center max-w-md mb-6 opacity-75">支持 RAW/NEF 专业格式 | Minecraft 皮肤 | Office 文档 | 3D 模型 | 视频音频 | Scratch 项目</p><div class="max-w-4xl mx-auto w-full px-4 mb-6" style="pointer-events: auto;"><div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-4 border border-white border-opacity-20"><h3 class="text-lg font-semibold mb-3 text-center"><i class="fa fa-th-large mr-2"></i>支持的文件格式</h3><div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 text-sm"><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-image text-2xl mb-2 text-blue-400"></i><p class="font-medium">图片</p><p class="text-xs opacity-75 mt-1">JPG, PNG, GIF, WEBP, BMP, SVG</p></div><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-camera text-2xl mb-2 text-purple-400"></i><p class="font-medium">RAW/NEF</p><p class="text-xs opacity-75 mt-1">RAW, NEF, CR2, ARW, DNG</p></div><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-folder-open text-2xl mb-2 text-yellow-400"></i><p class="font-medium">文件夹</p><p class="text-xs opacity-75 mt-1">批量浏览</p></div><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-video-camera text-2xl mb-2 text-red-400"></i><p class="font-medium">视频</p><p class="text-xs opacity-75 mt-1">MP4, WEBM, MOV, AVI, MKV</p></div><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-music text-2xl mb-2 text-green-400"></i><p class="font-medium">音乐</p><p class="text-xs opacity-75 mt-1">MP3, WAV, FLAC, AAC, OGG</p></div><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-cube text-2xl mb-2 text-cyan-400"></i><p class="font-medium">3D视频</p><p class="text-xs opacity-75 mt-1">SBS, VR, 立体视频</p></div><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-cubes text-2xl mb-2 text-indigo-400"></i><p class="font-medium">3D模型</p><p class="text-xs opacity-75 mt-1">GLB, GLTF, OBJ, FBX, STL</p></div><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-file-text text-2xl mb-2 text-orange-400"></i><p class="font-medium">Office</p><p class="text-xs opacity-75 mt-1">Word, Excel, PowerPoint</p></div><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-file-pdf-o text-2xl mb-2 text-red-500"></i><p class="font-medium">PDF</p><p class="text-xs opacity-75 mt-1">PDF文档查看</p></div><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-file-archive-o text-2xl mb-2 text-amber-400"></i><p class="font-medium">压缩包</p><p class="text-xs opacity-75 mt-1">ZIP, 7Z, RAR</p></div><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-user text-2xl mb-2 text-green-500"></i><p class="font-medium">Minecraft</p><p class="text-xs opacity-75 mt-1">皮肤3D预览</p></div><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-gamepad text-2xl mb-2 text-orange-500"></i><p class="font-medium">Scratch</p><p class="text-xs opacity-75 mt-1">SB, SB2, SB3项目</p></div></div></div></div><div class="flex flex-col sm:flex-row gap-4" style="pointer-events: auto;"><button id="browseFilesBtn" class="btn btn-primary"><i class="fa fa-image mr-2"></i> 浏览图片</button> <button id="browseVideoBtn" class="btn btn-secondary"><i class="fa fa-video-camera mr-2"></i> 浏览视频</button> <button id="browsePdfBtn" class="btn btn-outline text-white border-gray-600"><i class="fa fa-file-pdf-o mr-2"></i> 浏览PDF</button> <button id="browseSkinsBtn" class="btn btn-outline text-white border-gray-600"><i class="fa fa-user mr-2"></i> 查看皮肤</button> <button id="browseScratchBtn" class="btn btn-outline text-white border-orange-500 hover:bg-orange-600 hover:border-orange-600" style="border-color: #f97316;"><i class="fa fa-gamepad mr-2" style="color: #f97316;"></i> <span style="color: #f97316;">Scratch</span></button></div><input type="file" id="fileInput" multiple="" class="hidden" accept="image/*,.raw,.nef"> <input type="file" id="videoInput" multiple="" class="hidden" accept="video/*,.mp4,.webm,.mov,.avi,.mkv,.m4v,.ogg"> <input type="file" id="pdfInput" multiple="" class="hidden" accept=".pdf,application/pdf"></div><div id="imageInfo" class="absolute bottom-4 left-4 text-white text-sm bg-black bg-opacity-50 px-3 py-1 rounded-md z-10 hidden" style="pointer-events: none;"><div id="fileName">未加载文件</div><div id="imageDimensions" class="opacity-75">-</div></div><div id="splitHintOverlay" class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center hidden z-15" style="pointer-events: none;"><div class="text-center text-white"><i class="fa fa-arrows-alt text-4xl mb-2 opacity-75"></i><p class="text-lg">拖拽标签到边缘进行分屏</p><p class="text-sm opacity-75 mt-1">左/右边缘：水平分屏 | 上/下边缘：垂直分屏</p></div></div></div></div></main><div id="settingsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden" style="cursor: pointer;"><div id="settingsContent" class="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-full max-w-md max-h-[85vh] overflow-y-auto overscroll-contain" style="cursor: default;"><div class="sticky top-0 bg-white dark:bg-gray-800 z-10 flex justify-between items-center mb-4 p-6 pb-0"><h2 class="text-xl font-bold" data-i18n="settings">设置</h2><button id="closeSettingsBtn" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"><i class="fa fa-times"></i></button></div><div class="space-y-4 p-6 pt-0"><div class="p-3 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-gray-700 dark:to-gray-700 rounded-lg"><label class="block mb-2 text-sm font-medium flex items-center"><i class="fa fa-globe mr-2 text-purple-500"></i> <span data-i18n="language">语言 / Language</span></label> <select id="languageSelector" class="input-field w-full text-sm"><option value="zh-CN">简体中文</option><option value="zh-TW">繁體中文</option><option value="zh-CN-Classical">简体文言文</option><option value="zh-TW-Classical">繁體文言文</option><option value="en">English</option><option value="ko">한국어</option></select></div><div><label class="block mb-2" data-i18n="thumbnailSize">缩略图大小 <span id="thumbnailSizeValue" class="text-sm text-gray-500">(120)</span></label> <input type="range" id="thumbnailSizeSlider" class="slider" min="80" max="200" value="120"><div class="flex justify-between text-sm text-gray-500"><span data-i18n="small">小</span> <span data-i18n="large">大</span></div></div><div><label class="block mb-2" data-i18n="bgColor">背景颜色</label><div class="grid grid-cols-5 gap-2"><button class="bg-black w-8 h-8 rounded-full" data-bg-color="#000000"></button> <button class="bg-gray-800 w-8 h-8 rounded-full border-transparent" data-bg-color="#1F2937"></button> <button class="bg-gray-600 w-8 h-8 rounded-full border-transparent border-2 border-white" data-bg-color="#4B5563"></button> <button class="bg-gray-400 w-8 h-8 rounded-full border-transparent" data-bg-color="#9CA3AF"></button> <button class="bg-white w-8 h-8 rounded-full border-gray-300" data-bg-color="#FFFFFF"></button></div></div><div class="border-t border-gray-200 dark:border-gray-700 pt-4"><label class="flex items-center"><input type="checkbox" id="autoSaveCheckbox" class="mr-2"> <span data-i18n="autoSaveCache">自动保存到本地缓存</span></label><p class="text-xs text-gray-500 mt-1 ml-6" data-i18n="autoSaveHint">编辑图片后自动保存到未保存列表</p></div><div id="autoSaveDelayContainer" class="pl-6"><label class="block mb-2" data-i18n="autoSaveDelay">自动保存延迟 <span id="autoSaveDelayValue" class="text-sm text-gray-500">(3秒)</span></label> <input type="range" id="autoSaveDelaySlider" class="slider" min="1" max="10" value="3"><div class="flex justify-between text-sm text-gray-500"><span data-i18n="seconds1">1秒</span> <span data-i18n="seconds10">10秒</span></div></div><div class="border-t border-gray-200 dark:border-gray-700 pt-4"><label class="flex items-center"><input type="checkbox" id="autoPlayCheckbox" class="mr-2"> <span data-i18n="autoSlideshow">自动播放幻灯片</span></label></div><div id="slideDurationContainer" class="pl-6 hidden"><label class="block mb-2" data-i18n="slideInterval">幻灯片间隔 <span id="slideDurationValue" class="text-sm text-gray-500">(3秒)</span></label> <input type="range" id="slideDurationSlider" class="slider" min="1" max="10" value="3"><div class="flex justify-between text-sm text-gray-500"><span data-i18n="seconds1">1秒</span> <span data-i18n="seconds10">10秒</span></div></div><div class="border-t border-gray-200 dark:border-gray-700 pt-4"><h3 class="font-semibold mb-3 flex items-center"><i class="fa fa-refresh mr-2 text-blue-500"></i><span data-i18n="hotUpdate">热更新</span></h3><div class="space-y-2"><div class="flex justify-between items-center"><span class="text-sm text-gray-600 dark:text-gray-400" data-i18n="currentVersion">当前版本</span> <span id="currentVersion" class="text-sm font-medium">1.0.0</span></div><div class="flex justify-between items-center"><span class="text-sm text-gray-600 dark:text-gray-400" data-i18n="lastCheck">上次检查</span> <span id="lastUpdateCheck" class="text-sm">2026/3/21 06:19:35</span></div><button id="checkUpdateBtn" class="btn btn-primary btn-sm w-full mt-2"><i class="fa fa-refresh"></i><span data-i18n="checkUpdate">检查更新</span></button></div></div><div class="border-t border-gray-200 dark:border-gray-700 pt-4"><h3 class="font-semibold mb-3 flex items-center"><i class="fa fa-video-camera mr-2 text-blue-500"></i><span data-i18n="videoSettings">视频播放</span></h3><div class="p-3 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-700 dark:to-gray-700 rounded-lg border border-blue-200 dark:border-blue-800"><div class="flex justify-between items-center mb-2"><span class="text-sm font-medium flex items-center"><i class="fa fa-video-camera mr-2 text-blue-500"></i><span data-i18n="webgl2VideoRender">WebGL 2.0 视频渲染</span> </span><label class="relative inline-flex items-center cursor-pointer"><input type="checkbox" id="webglVideoRenderToggle" class="sr-only peer"><div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div></label></div><p class="text-xs text-gray-500 dark:text-gray-400 mb-2" data-i18n="webgl2VideoHint">使用 WebGL 2.0 直接渲染视频帧到 Canvas，隐藏视频元素</p><div id="webglVideoStatus" class="text-xs text-gray-400"><i class="fa fa-circle text-gray-300 mr-1"></i><span data-i18n="notEnabled">未启用</span></div></div></div><div class="border-t border-gray-200 dark:border-gray-700 pt-4"><h3 class="font-semibold mb-3 flex items-center"><i class="fa fa-flask mr-2 text-purple-500"></i><span data-i18n="labFeatures">实验室功能</span> <span class="ml-2 text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded">BETA</span></h3><p class="text-xs text-gray-500 mb-3" data-i18n="labFeaturesHint">这些功能处于实验阶段，可能存在性能问题或不稳定</p><div class="mb-3 p-3 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-700 dark:to-gray-700 rounded-lg"><div class="flex justify-between items-center mb-2"><span class="text-sm font-medium flex items-center"><i class="fa fa-memory mr-2 text-blue-500"></i><span data-i18n="memoryMonitor">内存监控</span> </span><button id="refreshMemoryBtn" class="text-xs text-blue-500 hover:text-blue-600"><i class="fa fa-refresh"></i> <span data-i18n="refresh">刷新</span></button></div><div class="grid grid-cols-2 gap-2 text-xs"><div class="bg-white dark:bg-gray-800 p-2 rounded"><div class="text-gray-500" data-i18n="blobURLs">Blob URLs</div><div id="memoryBlobCount" class="font-semibold">0</div></div><div class="bg-white dark:bg-gray-800 p-2 rounded"><div class="text-gray-500" data-i18n="blobSize">Blob 大小</div><div id="memoryBlobSize" class="font-semibold">0 B</div></div><div class="bg-white dark:bg-gray-800 p-2 rounded"><div class="text-gray-500" data-i18n="resources3D">3D 资源</div><div id="memoryThreeCount" class="font-semibold">0</div></div><div class="bg-white dark:bg-gray-800 p-2 rounded"><div class="text-gray-500" data-i18n="eventListeners">事件监听器</div><div id="memoryListenerCount" class="font-semibold">0</div></div></div><button id="forceCleanupBtn" class="mt-2 w-full text-xs bg-red-100 text-red-600 dark:bg-red-900 dark:text-red-300 py-1 rounded hover:bg-red-200 dark:hover:bg-red-800 transition-colors"><i class="fa fa-trash-o mr-1"></i><span data-i18n="forceCleanup">强制清理内存</span></button></div><div class="mb-3 p-2 bg-gray-50 dark:bg-gray-700 rounded"><div class="flex justify-between items-center"><span class="text-sm" data-i18n="webgpuStatus">WebGPU 状态</span> <span id="webgpuStatus" class="text-xs px-2 py-1 rounded" data-i18n="detecting">检测中...</span></div></div><div class="space-y-2 mb-3"><label class="flex items-center justify-between"><div><span class="text-sm" data-i18n="webgpuVideoRender">WebGPU 视频渲染</span><p class="text-xs text-gray-500" data-i18n="webgpuVideoHint">使用 GPU 加速视频解码和渲染</p></div><input type="checkbox" id="webgpuVideoCheckbox" class="toggle-checkbox" disabled="disabled"></label></div><div class="space-y-2"><label class="flex items-center justify-between"><div><span class="text-sm" data-i18n="webgpuImageRender">WebGPU 图像渲染</span><p class="text-xs text-gray-500" data-i18n="webgpuImageHint">使用 GPU 加速图像处理和显示</p></div><input type="checkbox" id="webgpuImageCheckbox" class="toggle-checkbox" disabled="disabled"></label></div><div id="webgpuModeContainer" class="mt-3 pl-2 border-l-2 border-purple-300 hidden"><label class="block mb-2 text-sm" data-i18n="renderMode">渲染模式</label> <select id="webgpuRenderMode" class="input-field w-full text-sm"><option value="external" data-i18n="externalTexture">外部纹理 (零拷贝，高性能)</option><option value="copy" data-i18n="copyTexture">复制纹理 (兼容性好)</option></select><p class="text-xs text-gray-500 mt-1"><i class="fa fa-info-circle mr-1"></i> <span data-i18n="externalTextureHint">外部纹理模式性能最佳但不支持所有功能</span></p></div><div class="mt-3 p-3 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-700 dark:to-gray-700 rounded-lg border border-blue-200 dark:border-blue-800"><div class="flex justify-between items-center mb-2"><span class="text-sm font-medium flex items-center"><i class="fa fa-video-camera mr-2 text-blue-500"></i><span data-i18n="webgl2VideoRender">WebGL 2.0 视频渲染</span> <span class="ml-2 text-xs bg-orange-100 text-orange-600 px-1.5 py-0.5 rounded" data-i18n="experimental">实验性</span> </span><button id="webglVideoRenderBtn" class="text-xs bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded transition-colors"><i class="fa fa-flask mr-1"></i><span data-i18n="enable">启用</span></button></div><p class="text-xs text-gray-500 dark:text-gray-400 mb-2" data-i18n="webgl2VideoHint">使用 WebGL 2.0 直接渲染视频帧到 Canvas，隐藏视频元素</p><div id="webglVideoStatus" class="text-xs text-gray-400"><i class="fa fa-circle text-gray-300 mr-1"></i><span data-i18n="notEnabled">未启用</span></div></div></div><div class="border-t border-red-300 dark:border-red-800 pt-4"><h3 class="font-semibold mb-3 flex items-center text-red-600 dark:text-red-400"><i class="fa fa-exclamation-triangle mr-2"></i><span data-i18n="dangerMode">高危模式</span> <span class="ml-2 text-xs bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 px-2 py-0.5 rounded" data-i18n="dangerous">危险</span></h3><p class="text-xs text-red-500 dark:text-red-400 mb-3"><i class="fa fa-warning mr-1"></i> <span data-i18n="dangerModeHint">以下功能可能导致不可预期的行为，请谨慎使用！</span></p><div class="p-3 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800"><div class="flex items-center justify-between"><div><span class="text-sm font-medium text-red-700 dark:text-red-300"><i class="fa fa-random mr-1"></i><span data-i18n="kichikuMode">鬼畜模式</span></span><p class="text-xs text-red-500 dark:text-red-400 mt-1" data-i18n="kichikuModeHint">你自己懂的....</p></div><button id="kichikuModeBtn" class="px-3 py-1 text-xs bg-red-600 hover:bg-red-700 text-white rounded transition-colors"><i class="fa fa-play mr-1"></i><span data-i18n="enable">开启</span></button></div></div></div></div><div class="mt-6 flex justify-end"><button id="applySettingsBtn" class="btn btn-primary"><span data-i18n="apply">应用</span></button></div></div></div><div id="errorModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"><div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-full max-w-md p-6"><div class="flex items-center mb-4"><i class="fa fa-exclamation-circle text-red-500 text-2xl mr-3"></i><h2 class="text-xl font-bold" data-i18n="error">错误</h2></div><p id="errorMessage" class="mb-6" data-i18n="errorOccurred">发生了一个错误</p><div class="flex justify-end"><button id="closeErrorBtn" class="btn btn-primary"><span data-i18n="ok">确定</span></button></div></div></div><div id="saveModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"><div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-full max-w-md p-6"><div class="flex justify-between items-center mb-4"><h2 class="text-xl font-bold" data-i18n="saveImage">保存图片</h2><button id="closeSaveBtn" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"><i class="fa fa-times"></i></button></div><div class="space-y-4"><div><label class="block mb-2" data-i18n="fileName">文件名</label> <input id="saveFileName" class="input-field w-full" value="edited_image"></div><div><label class="block mb-2" data-i18n="format">格式</label> <select id="saveFormatSelect" class="input-field w-full"><option value="image/jpeg">JPEG</option><option value="image/png">PNG</option><option value="image/webp">WebP</option></select></div><div id="jpegQualityContainer"><label class="block mb-2" data-i18n="quality">质量</label> <input type="range" id="jpegQualitySlider" class="slider" min="1" max="100" value="90"><div class="flex justify-between text-sm text-gray-500"><span data-i18n="low">低</span> <span id="jpegQualityValue">90%</span> <span data-i18n="high">高</span></div></div></div><div class="mt-6 flex justify-end"><button id="confirmSaveBtn" class="btn btn-primary">保存</button></div></div></div><script>// ========== 全局错误处理 ==========
+        @media (min-width: 640px){.sm\:flex-row{flex-direction:row}}</style></head><body class="bg-gray-100 dark:bg-darker text-gray-900 dark:text-gray-100 h-screen flex flex-col"><header class="bg-white dark:bg-dark shadow-md z-10"><div class="container mx-auto px-4 py-3 flex items-center justify-between"><div class="flex items-center gap-3"><h1 class="text-xl font-bold text-primary"><i class="fa fa-picture-o mr-2"></i><span data-i18n="appTitleShort">专业媒体查看器</span></h1><span class="text-sm text-gray-500 dark:text-gray-400" data-i18n="supportedFormatsShort">支持RAW/NEF/IAW/Minecraft皮肤/Office/3D</span></div><div class="flex items-center gap-2 flex-wrap"><button id="openFileBtn" class="btn btn-primary"><i class="fa fa-file-image-o"></i> <span data-i18n="images">图片</span></button> <button id="openFolderBtn" class="btn btn-primary"><i class="fa fa-folder-open"></i> <span data-i18n="folder">文件夹</span></button> <button id="openVideoBtn" class="btn btn-secondary"><i class="fa fa-video-camera"></i> <span data-i18n="videos">视频</span></button> <button id="openAudioBtn" class="btn btn-secondary"><i class="fa fa-music"></i> <span data-i18n="music">音频</span></button> <button id="open3DVideoBtn" class="btn btn-secondary"><i class="fa fa-cube"></i> <span data-i18n="video3D">3D视频</span></button> <button id="open3DModelBtn" class="btn btn-secondary"><i class="fa fa-cubes"></i> <span data-i18n="model3D">3D模型</span></button><div class="relative group"><button id="openOfficeBtn" class="btn btn-secondary"><i class="fa fa-file-text"></i> <span data-i18n="office">Office</span> <i class="fa fa-caret-down ml-1"></i></button><div class="absolute top-full left-0 mt-1 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-600 hidden group-hover:block z-50 min-w-[120px]"><button id="openWordBtn" class="w-full px-4 py-2 text-left hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2 text-sm"><i class="fa fa-file-word-o text-blue-500"></i> <span data-i18n="word">Word</span></button> <button id="openExcelBtn" class="w-full px-4 py-2 text-left hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2 text-sm"><i class="fa fa-file-excel-o text-green-500"></i> <span data-i18n="excel">Excel</span></button> <button id="openPPTBtn" class="w-full px-4 py-2 text-left hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-2 text-sm"><i class="fa fa-file-powerpoint-o text-orange-500"></i> <span data-i18n="ppt">PPT</span></button></div></div><button id="openArchiveBtn" class="btn btn-secondary"><i class="fa fa-file-archive-o"></i> <span data-i18n="archive">压缩包</span></button> <button id="openMdBtn" class="btn btn-secondary"><i class="fa fa-file-text-o"></i> <span>Markdown</span></button> <button id="openHexBtn" class="btn btn-secondary"><i class="fa fa-file-code-o"></i> <span>Hex</span></button> <button id="openScratchBtn" class="btn btn-secondary"><i class="fa fa-gamepad"></i> <span data-i18n="scratch">Scratch</span></button> <button id="settingsBtn" class="btn btn-outline" data-i18n-title="settings"><i class="fa fa-cog"></i></button> <button id="themeToggleBtn" class="btn btn-outline" data-i18n-title="toggleTheme"><i class="fa fa-moon-o dark:hidden"></i> <i class="fa fa-sun-o hidden dark:inline"></i></button></div></div></header><main class="flex-1 flex overflow-hidden"><aside class="w-64 bg-gray-50 dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col"><div class="flex border-b border-gray-200 dark:border-gray-700"><button id="tabImages" class="tab-btn active flex-1"><i class="fa fa-image mr-1"></i><span data-i18n="images">图片</span></button> <button id="tabVideos" class="tab-btn flex-1"><i class="fa fa-video-camera mr-1"></i><span data-i18n="videos">视频</span></button> <button id="tabSkins" class="tab-btn flex-1"><i class="fa fa-user mr-1"></i><span data-i18n="skins">皮肤</span></button> <button id="tabArchives" class="tab-btn flex-1"><i class="fa fa-file-archive-o mr-1"></i><span data-i18n="archive">压缩包</span></button> <button id="tabScratch" class="tab-btn flex-1"><i class="fa fa-gamepad mr-1"></i><span data-i18n="scratch">Scratch</span></button></div><div id="imagesPanel" class="flex-1 flex flex-col"><div class="p-4 border-b border-gray-200 dark:border-gray-700"><h2 class="font-semibold mb-2 flex items-center"><i class="fa fa-folder mr-2"></i><span data-i18n="folder">文件夹</span></h2><div id="folderPath" class="text-sm text-gray-500 dark:text-gray-400 truncate mb-2" data-i18n="localVideos">本地视频</div><input type="file" id="folderInput" webkitdirectory="" directory="" multiple="" class="hidden"> <input type="file" id="openVideoInput" multiple="" class="hidden" accept="video/*,.mp4,.webm,.ogv,.mov,.avi,.mkv,.m4v"> <input type="file" id="openAudioInput" multiple="" class="hidden" accept="audio/*,.mp3,.wav,.ogg,.oga,.flac,.aac,.m4a,.wma,.ape,.alac,.opus"> <input type="file" id="openLrcInput" multiple="" class="hidden" accept=".lrc"> <input type="file" id="open3DVideoInput" multiple="" class="hidden" accept="video/*,.mp4,.mkv,.avi,.mov"> <input type="file" id="open3DModelInput" multiple="" class="hidden" accept=".glb,.gltf,.obj,.fbx,.stl,.dae,.3ds"> <input type="file" id="openWordInput" multiple="" class="hidden" accept=".doc,.docx,.rtf,.odt"> <input type="file" id="openExcelInput" multiple="" class="hidden" accept=".xls,.xlsx,.csv,.ods"> <input type="file" id="openPPTInput" multiple="" class="hidden" accept=".ppt,.pptx,.odp"> <input type="file" id="openArchiveInput" multiple="" class="hidden" accept=".zip,.7z,.rar,.tar,.gz"> <input type="file" id="openMdInput" multiple="" class="hidden" accept=".md,.markdown,.mdown,.mkd">
+<input type="file" id="openHexInput" multiple="" class="hidden" accept=".hex">
+<input type="file" id="openScratchInput" multiple="" class="hidden" accept=".sb,.sb2,.sb3,.sprite3"></div><div id="unsavedPanel" class="border-b border-gray-200 dark:border-gray-700 hidden"><div class="p-2 flex justify-between items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors" onclick="toggleUnsavedPanel()"><h3 class="font-semibold text-sm flex items-center"><i class="fa fa-clock-o mr-2 text-orange-500"></i>未保存 <span id="unsavedCount" class="ml-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white text-xs px-2 py-0.5 rounded-full shadow">0</span></h3><div class="flex items-center gap-2"><button id="clearAllUnsavedBtn" class="text-xs text-gray-400 hover:text-red-500 transition-colors hidden" onclick="event.stopPropagation(); clearAllUnsavedImages();" title="清空全部"><i class="fa fa-trash"></i></button> <i id="unsavedToggleIcon" class="fa fa-chevron-down text-gray-400 transition-transform"></i></div></div><div id="unsavedList" class="max-h-48 overflow-y-auto scrollbar-thin scrollbar-dark"></div></div><div class="flex-1 overflow-y-auto scrollbar-thin scrollbar-dark p-2" style="cursor: grab;"><div class="flex justify-between items-center p-2"><h2 class="font-semibold">缩略图</h2><div class="flex gap-1 items-center"><button id="viewCardBtn" class="view-toggle-btn active" title="卡片视图"><i class="fa fa-th-large"></i></button> <button id="viewListBtn" class="view-toggle-btn" title="列表视图"><i class="fa fa-list"></i></button> <span class="mx-2 text-gray-600">|</span> <button id="thumbnailSizeDecrease" class="btn btn-sm btn-outline"><i class="fa fa-minus"></i></button> <button id="thumbnailSizeIncrease" class="btn btn-sm btn-outline"><i class="fa fa-plus"></i></button></div></div><div id="thumbnailsContainer" class="grid grid-cols-2 gap-2"><div class="col-span-2 text-center text-gray-500 dark:text-gray-400 py-8"><i class="fa fa-image text-4xl mb-2 opacity-50"></i><p>暂无图片</p><p class="text-xs mt-1">点击上方按钮或拖拽文件打开</p></div></div></div></div><div id="videosPanel" class="flex-1 flex-col hidden"><div class="p-4 border-b border-gray-200 dark:border-gray-700"><h2 class="font-semibold mb-2 flex items-center"><i class="fa fa-video-camera mr-2"></i>视频列表</h2><div class="text-sm text-gray-500 dark:text-gray-400 truncate mb-2" id="videoListInfo">点击上方"打开视频"按钮添加视频</div></div><div class="p-4 border-b border-gray-200 dark:border-gray-700"><h3 class="font-semibold mb-2 text-sm flex items-center"><i class="fa fa-link mr-2"></i>网络视频</h3><div class="space-y-2"><input id="httpVideoUrlInput" class="input-field w-full text-sm" placeholder="输入视频URL (支持HLS/DASH/MP4)"><div class="flex gap-2"><button id="loadHttpVideoBtn" class="btn btn-primary btn-sm flex-1"><i class="fa fa-play"></i>播放</button> <button id="clearHttpVideoBtn" class="btn btn-outline btn-sm"><i class="fa fa-times"></i></button></div><div class="text-xs text-gray-500 dark:text-gray-400"><p>支持格式：</p><ul class="list-disc list-inside mt-1"><li>HTTP直链 (MP4/WebM/MOV等)</li><li>HLS流媒体 (.m3u8)</li><li>DASH流媒体 (.mpd)</li></ul></div></div></div><div id="hdrStatusPanel" class="p-2 bg-gray-100 dark:bg-gray-700 text-xs hidden"><div class="flex items-center justify-between"><span id="hdrStatusText">SDR模式</span> <span id="videoQualityText">-</span></div></div><div class="flex-1 overflow-y-auto scrollbar-thin scrollbar-dark p-2"><div id="videoThumbnailsContainer" class="grid grid-cols-2 gap-2"><div class="col-span-2 text-center text-gray-500 dark:text-gray-400 py-8"><i class="fa fa-video-camera text-4xl mb-2 opacity-50"></i><p>暂无视频</p><p class="text-xs mt-1">支持 MP4, WebM, MOV, AVI, MKV</p></div></div></div></div><div id="skinsPanel" class="flex-1 flex-col hidden"><div class="p-4 border-b border-gray-200 dark:border-gray-700"><h2 class="font-semibold mb-2 flex items-center"><i class="fa fa-user mr-2"></i>皮肤查看器</h2><div class="space-y-2"><input id="skinUrlInput" class="input-field w-full text-sm" placeholder="皮肤URL或玩家名"> <button id="loadSkinBtn" class="btn btn-primary btn-sm w-full"><i class="fa fa-download"></i>加载皮肤</button> <input type="file" id="skinFileInput" accept="image/png" class="hidden"> <button id="uploadSkinBtn" class="btn btn-outline btn-sm w-full"><i class="fa fa-upload"></i>上传皮肤文件</button></div></div><div class="p-4 overflow-y-auto scrollbar-thin scrollbar-dark"><h3 class="font-semibold mb-3">渲染设置</h3><div class="space-y-3"><div><label class="block text-sm mb-1">模型类型</label> <select id="skinModelType" class="input-field w-full text-sm"><option value="classic">经典 (4px手臂)</option><option value="slim">纤细 (3px手臂)</option></select></div><div class="flex items-center justify-between"><label for="skinAutoRotate" class="text-sm">自动旋转</label> <input type="checkbox" id="skinAutoRotate" checked="" class="w-4 h-4"></div><div class="flex items-center justify-between"><label for="skinShowCape" class="text-sm">显示披风</label> <input type="checkbox" id="skinShowCape" class="w-4 h-4"></div></div><h3 class="font-semibold mt-4 mb-3">动画</h3><div class="grid grid-cols-2 gap-2"><button class="animation-btn btn btn-outline btn-sm" data-anim="idle"><i class="fa fa-user"></i>待机</button> <button class="animation-btn btn btn-outline btn-sm" data-anim="walk"><i class="fa fa-walking"></i>行走</button> <button class="animation-btn btn btn-outline btn-sm" data-anim="run"><i class="fa fa-running"></i>奔跑</button> <button class="animation-btn btn btn-outline btn-sm" data-anim="fly"><i class="fa fa-paper-plane"></i>飞行</button></div><h3 class="font-semibold mt-4 mb-3">2D导出</h3><div class="space-y-2"><button id="exportAvatarBtn" class="btn btn-outline btn-sm w-full"><i class="fa fa-download"></i>导出头像</button> <button id="exportFullBodyBtn" class="btn btn-outline btn-sm w-full"><i class="fa fa-download"></i>导出全身像</button></div><h3 class="font-semibold mt-4 mb-3">查看选项</h3><div class="space-y-2"><button id="viewAsImageBtn" class="btn btn-outline btn-sm w-full"><i class="fa fa-image"></i>查看原图 (2D)</button></div></div></div><div id="archivesPanel" class="flex-1 flex-col hidden"><div class="p-4 border-b border-gray-200 dark:border-gray-700"><h2 class="font-semibold mb-2 flex items-center"><i class="fa fa-file-archive-o mr-2"></i><span data-i18n="archive">压缩包</span></h2><div id="archiveInfo" class="text-sm text-gray-500 dark:text-gray-400 truncate mb-2">点击上方"压缩包"按钮打开 ZIP/7Z 文件</div></div><div class="flex-1 overflow-y-auto scrollbar-thin scrollbar-dark p-2"><div id="archiveTree" class="space-y-1"><div class="text-center text-gray-500 dark:text-gray-400 py-8"><i class="fa fa-file-archive-o text-4xl mb-2 opacity-50"></i><p data-i18n="noArchiveLoaded">暂未加载压缩包</p><p class="text-xs mt-1" data-i18n="openArchiveHint">点击上方按钮或拖拽文件打开</p></div></div></div></div></aside><div class="flex-1 flex flex-col bg-gray-900"><div id="imageTabsBar" class="bg-gray-800 px-2 py-1 flex items-center overflow-x-auto hidden" style="min-height: 36px;"><div id="imageTabsContainer" class="flex items-center flex-1"></div><div id="splitControls" class="flex items-center gap-1 ml-2 hidden"><button id="exitSplitBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-red-600" title="退出分屏"><i class="fa fa-times"></i> 退出分屏</button></div></div><div id="imageToolbar" class="bg-gray-800 text-white p-2 flex justify-between items-center hidden"><div class="flex gap-2"><button id="prevImageBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700" disabled=""><i class="fa fa-chevron-left"></i> <span data-i18n="prevImage">上一张</span></button> <button id="nextImageBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700" disabled=""><span data-i18n="nextImage">下一张</span> <i class="fa fa-chevron-right"></i></button></div><div class="flex gap-2"><div class="tooltip"><button id="zoomOutBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-search-minus"></i></button> <span class="tooltip-text" data-i18n="zoomOut">缩小</span></div><div class="tooltip"><button id="zoomResetBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-refresh"></i></button> <span class="tooltip-text" data-i18n="resetZoom">重置缩放</span></div><div class="tooltip"><button id="zoomInBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-search-plus"></i></button> <span class="tooltip-text" data-i18n="zoomIn">放大</span></div><div class="tooltip"><button id="autoFitBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-expand"></i></button> <span class="tooltip-text" data-i18n="autoFit">自动适应</span></div><span id="zoomDisplay" class="text-white text-sm px-2 py-1 bg-gray-700 rounded min-w-[50px] text-center">100%</span></div><div class="flex gap-2"><div class="tooltip"><button id="rotateLeftBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-rotate-left"></i></button> <span class="tooltip-text" data-i18n="rotateLeft">向左旋转</span></div><div class="tooltip"><button id="rotateRightBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-rotate-right"></i></button> <span class="tooltip-text" data-i18n="rotateRight">向右旋转</span></div><div class="tooltip"><button id="flipHorizontalBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-arrows-h"></i></button> <span class="tooltip-text" data-i18n="flipHorizontal">水平翻转</span></div><div class="tooltip"><button id="flipVerticalBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-arrows-v"></i></button> <span class="tooltip-text" data-i18n="flipVertical">垂直翻转</span></div></div><div class="flex gap-2"><div class="tooltip"><button id="cropBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-crop"></i></button> <span class="tooltip-text" data-i18n="crop">裁剪</span></div><div class="tooltip"><button id="adjustBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-sliders"></i></button> <span class="tooltip-text" data-i18n="adjust">调整</span></div><div class="tooltip"><button id="filterBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-magic"></i></button> <span class="tooltip-text" data-i18n="filter">滤镜</span></div><div class="tooltip"><button id="compareBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-columns"></i></button> <span class="tooltip-text" data-i18n="compareImages">图片比较</span></div><div class="tooltip"><button id="exifBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-info-circle"></i></button> <span class="tooltip-text" data-i18n="exifInfo">EXIF信息</span></div><div class="tooltip"><button id="saveBtn" class="btn btn-sm btn-primary"><i class="fa fa-save"></i> <span data-i18n="save">保存</span></button> <span class="tooltip-text">保存图片</span></div></div></div><div id="skinToolbar" class="bg-gray-800 text-white p-2 justify-between items-center hidden"><div class="flex gap-2"><button id="skinZoomOutBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-search-minus"></i></button> <button id="skinZoomResetBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-refresh"></i></button> <button id="skinZoomInBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-search-plus"></i></button></div><div class="flex items-center gap-4"><span id="skinStatus" class="text-sm text-gray-400">就绪</span></div></div><div class="flex-1 relative overflow-hidden" id="imageViewerContainer" style="background-color: #1F2937;"><div id="splitIndicator" class="split-indicator"></div><div id="mainViewContainer" class="absolute inset-0"><div id="loadingIndicator" class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20 hidden" style="pointer-events: none;"><div class="flex flex-col items-center"><div class="loading-spinner"></div><p class="text-white mt-2" id="loadingText">正在加载...</p></div></div><canvas id="imageCanvas" class="absolute inset-0 hidden"></canvas><canvas id="skinCanvas" class="absolute inset-0 hidden"></canvas><div id="pdfContainer" class="absolute inset-0 hidden overflow-auto bg-gray-900"><canvas id="pdfCanvas" class="mx-auto shadow-2xl"></canvas><div id="pdfControls" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center gap-2 bg-black bg-opacity-70 px-4 py-2 rounded-lg"><button id="pdfPrevPage" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-chevron-left"></i></button> <span class="text-white text-sm"><span id="pdfCurrentPage">1</span> / <span id="pdfTotalPages">1</span> </span><button id="pdfNextPage" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-chevron-right"></i></button><div class="w-px h-6 bg-gray-600 mx-2"></div><button id="pdfZoomIn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-search-plus"></i></button> <button id="pdfZoomOut" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><i class="fa fa-search-minus"></i></button> <span id="pdfZoomDisplay" class="text-white text-sm min-w-[50px] text-center">100%</span></div></div><div id="videoContainer" class="absolute inset-0 bg-black overflow-hidden hidden"><div id="videoWrapper" class="absolute inset-0"><canvas id="webgpuVideoCanvas" class="absolute inset-0 w-full h-full hidden"></canvas><div id="customVideoPlayer" class="custom-video-player"><video id="videoPlayer" playsinline="" disablepictureinpicture="" controlslist="nodownload nofullscreen noremoteplayback"></video><div class="absolute inset-0 z-5 hidden" id="videoMask"></div><div class="video-big-play" id="videoBigPlay"><i class="fa fa-play"></i></div><div class="video-loading hidden" id="videoLoading"><div class="loading-spinner"></div></div><div class="video-subtitle" id="videoSubtitle" style="display: none;"><span class="video-subtitle-text" id="videoSubtitleText"></span></div><div class="video-controls"><div class="video-progress-container" id="videoProgress"><div class="video-progress-buffer" id="videoBuffer" style="width: 0%;"></div><div class="video-progress-played" id="videoPlayed" style="width: 0%;"></div><div class="video-progress-handle" id="videoHandle" style="left: 0%;"></div><div class="video-progress-preview" id="videoProgressPreview" style="left: 0%;">00:00</div></div><div class="video-controls-row"><button class="video-btn" id="videoPlayBtn" data-i18n-title="playPause"><i class="fa fa-pause"></i></button><div class="volume-control"><button class="video-btn" id="videoVolumeBtn" data-i18n-title="mute"><i class="fa fa-volume-up"></i></button> <input type="range" class="volume-slider" id="videoVolumeSlider" min="0" max="1" step="0.1" value="1"></div><span class="video-time"><span id="videoCurrentTime">17:43</span> <span>/ </span><span id="videoDuration">30:30</span> </span><select class="playback-speed" id="videoSpeed"><option value="0.5">0.5x</option><option value="1" selected="">1x</option><option value="1.25">1.25x</option><option value="1.5">1.5x</option><option value="2">2x</option></select></div><div class="video-controls-row video-transform-row"><button class="video-btn" id="videoZoomOutBtn" data-i18n-title="zoomOut"><i class="fa fa-search-minus"></i></button> <button class="video-btn" id="videoZoomResetBtn" data-i18n-title="reset"><i class="fa fa-compress"></i></button> <button class="video-btn" id="videoZoomInBtn" data-i18n-title="zoomIn"><i class="fa fa-search-plus"></i></button> <span class="video-zoom-value" id="videoZoomValue">100%</span><div class="video-divider"></div><button class="video-btn" id="videoRotateLeftBtn" data-i18n-title="rotateLeft"><i class="fa fa-rotate-left"></i></button> <button class="video-btn" id="videoRotateRightBtn" data-i18n-title="rotateRight"><i class="fa fa-rotate-right"></i></button><div class="video-divider"></div><button class="video-btn" id="videoFlipHBtn" data-i18n-title="flipHorizontal"><i class="fa fa-arrows-h"></i></button> <button class="video-btn" id="videoFlipVBtn" data-i18n-title="flipVertical"><i class="fa fa-arrows-v"></i></button><div class="video-divider"></div><div class="subtitle-upload-btn"><button class="video-btn" id="videoSubtitleBtn" data-i18n-title="loadSubtitle"><i class="fa fa-closed-captioning"></i></button> <input type="file" id="subtitleFileInput" accept=".srt,.vtt"></div><button class="video-btn" id="videoSubtitleToggle" data-i18n-title="toggleSubtitle" style="opacity:0.4"><i class="fa fa-cc"></i></button></div></div></div></div></div><div id="audioContainer" class="absolute inset-0 hidden overflow-hidden"><div class="audio-player-new"><div class="audio-bg-blur" id="audioBgBlur"></div><div class="audio-main-content"><div class="audio-left-panel"><div class="audio-cover-container"><div class="audio-cover" id="audioCover"><i class="fa fa-music"></i> <img id="audioCoverImg" class="audio-cover-img hidden" alt="封面"></div><div class="audio-cover-ring" id="audioCoverRing"></div></div><div class="audio-song-info"><div class="audio-title" id="audioTitle" data-i18n="notPlaying">未播放</div><div class="audio-artist" id="audioArtist" data-i18n="selectAudioToPlay">选择音频文件开始播放</div><div class="audio-album" id="audioAlbum"></div></div><div class="audio-controls"><button class="audio-ctrl-btn" id="audioPrevBtn" data-i18n-title="prevTrack"><i class="fa fa-step-backward"></i></button> <button class="audio-ctrl-btn play-btn" id="audioPlayBtn" data-i18n-title="playPause"><i class="fa fa-play"></i></button> <button class="audio-ctrl-btn" id="audioNextBtn" data-i18n-title="nextTrack"><i class="fa fa-step-forward"></i></button></div><div class="audio-progress-wrapper"><span class="audio-time-small" id="audioCurrentTime">0:00</span><div class="audio-progress" id="audioProgress"><div class="audio-progress-bar" id="audioPlayed"></div><div class="audio-progress-handle" id="audioHandle"></div></div><span class="audio-time-small" id="audioDuration">0:00</span></div><div class="audio-volume-row"><button class="audio-vol-btn" id="audioVolumeBtn" data-i18n-title="mute"><i class="fa fa-volume-up"></i></button> <input type="range" class="audio-vol-slider" id="audioVolumeSlider" min="0" max="1" step="0.1" value="1"> <select class="audio-speed" id="audioSpeed"><option value="0.5">0.5x</option><option value="0.75">0.75x</option><option value="1" selected="">1x</option><option value="1.25">1.25x</option><option value="1.5">1.5x</option><option value="2">2x</option></select> <button class="audio-vol-btn" id="audioLoopBtn" data-i18n-title="loopPlay" style="opacity:0.5"><i class="fa fa-repeat"></i></button></div></div><div class="audio-right-panel" id="lyricsContainer"><div class="lyrics-header"><i class="fa fa-microphone"></i> <span data-i18n="lyrics">歌词</span><div class="lyrics-actions"><label class="lyrics-upload-btn" data-i18n-title="loadExternalLyrics"><i class="fa fa-upload"></i> <input type="file" id="lrcFileInput" accept=".lrc" class="hidden"></label> <button id="toggleLyricsBtn" data-i18n-title="toggleLyrics"><i class="fa fa-eye"></i></button></div></div><div class="lyrics-scroll" id="lyricsScroll"><div class="lyrics-empty" id="lyricsEmpty"><i class="fa fa-microphone-slash"></i> <span data-i18n="noLyrics">暂无歌词</span><div class="lyrics-hint" data-i18n="lyricsHint">点击上传 .lrc 歌词文件，或播放含嵌入歌词的音频</div></div></div></div></div><div class="audio-playlist-drawer" id="audioPlaylist"><div class="playlist-header"><h3><i class="fa fa-list-ul mr-2"></i><span data-i18n="playlist">播放列表</span></h3><div class="playlist-actions"><label class="playlist-add-btn" data-i18n-title="addAudio"><i class="fa fa-plus"></i> <input type="file" id="addAudioInput" multiple="" accept="audio/*" class="hidden"></label> <button id="clearPlaylistBtn" data-i18n-title="clearList"><i class="fa fa-trash"></i></button> <button id="closePlaylistBtn" data-i18n-title="close"><i class="fa fa-times"></i></button></div></div><div class="playlist-content" id="playlistContent"><div class="playlist-empty"><i class="fa fa-music"></i> <span data-i18n="playlistEmpty">播放列表为空</span></div></div></div><div class="audio-bottom-bar"><button class="bottom-btn" id="audioPlaylistBtn" data-i18n-title="playlist"><i class="fa fa-list-ul"></i></button> <button class="bottom-btn" id="audioShuffleBtn" data-i18n-title="shufflePlay" style="opacity:0.5"><i class="fa fa-random"></i></button><div class="bottom-info" id="audioFileInfo"></div></div></div></div></div><div id="splitViewContainer" class="absolute inset-0 hidden"></div><div id="cropOverlay" class="crop-overlay hidden"><div id="cropArea" class="crop-area"><div class="crop-handle tl"></div><div class="crop-handle tr"></div><div class="crop-handle bl"></div><div class="crop-handle br"></div></div><div class="absolute bottom-4 right-4 flex gap-2"><button id="cancelCropBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700"><span data-i18n="cancel">取消</span></button> <button id="applyCropBtn" class="btn btn-sm btn-primary"><span data-i18n="apply">应用</span></button></div></div><div id="adjustPanel" class="absolute top-4 right-4 w-64 glass-effect rounded-lg p-4 hidden z-10"><div class="flex justify-between items-center mb-4"><h3 class="font-semibold">调整</h3><button id="closeAdjustBtn" class="text-gray-500 hover:text-white"><i class="fa fa-times"></i></button></div><div class="space-y-4"><div><label class="flex justify-between"><span>亮度</span> <span id="brightnessValue">0</span></label> <input type="range" id="brightnessSlider" class="slider" min="-100" max="100" value="0"></div><div><label class="flex justify-between"><span>对比度</span> <span id="contrastValue">0</span></label> <input type="range" id="contrastSlider" class="slider" min="-100" max="100" value="0"></div><div><label class="flex justify-between"><span>饱和度</span> <span id="saturationValue">0</span></label> <input type="range" id="saturationSlider" class="slider" min="-100" max="100" value="0"></div><div class="pt-2 flex justify-end"><button id="resetAdjustmentsBtn" class="btn btn-sm btn-outline text-white border-gray-600 hover:bg-gray-700">重置</button></div></div></div><div id="filterPanel" class="absolute top-4 right-4 w-72 glass-effect rounded-lg p-4 hidden z-10"><div class="flex justify-between items-center mb-4"><h3 class="font-semibold"><i class="fa fa-magic mr-2"></i>滤镜效果</h3><button id="closeFilterBtn" class="text-gray-500 hover:text-white"><i class="fa fa-times"></i></button></div><div class="grid grid-cols-3 gap-2 mb-4"><button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="none"><i class="fa fa-ban text-lg mb-1"></i><div class="text-xs">原图</div></button> <button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="grayscale"><i class="fa fa-adjust text-lg mb-1"></i><div class="text-xs">黑白</div></button> <button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="sepia"><i class="fa fa-camera-retro text-lg mb-1"></i><div class="text-xs">复古</div></button> <button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="invert"><i class="fa fa-exchange text-lg mb-1"></i><div class="text-xs">反色</div></button> <button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="blur"><i class="fa fa-tint text-lg mb-1"></i><div class="text-xs">模糊</div></button> <button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="sharpen"><i class="fa fa-diamond text-lg mb-1"></i><div class="text-xs">锐化</div></button> <button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="emboss"><i class="fa fa-cube text-lg mb-1"></i><div class="text-xs">浮雕</div></button> <button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="vintage"><i class="fa fa-film text-lg mb-1"></i><div class="text-xs">怀旧</div></button> <button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="warm"><i class="fa fa-sun-o text-lg mb-1"></i><div class="text-xs">暖色</div></button> <button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="cool"><i class="fa fa-snowflake-o text-lg mb-1"></i><div class="text-xs">冷色</div></button> <button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="vignette"><i class="fa fa-circle-o text-lg mb-1"></i><div class="text-xs">暗角</div></button> <button class="filter-btn p-2 rounded bg-gray-700 hover:bg-gray-600 transition text-center" data-filter="posterize"><i class="fa fa-paint-brush text-lg mb-1"></i><div class="text-xs">海报</div></button></div><div class="border-t border-gray-600 pt-3"><label class="flex justify-between text-sm mb-2"><span>滤镜强度</span> <span id="filterIntensityValue">100%</span></label> <input type="range" id="filterIntensitySlider" class="slider" min="0" max="100" value="100"></div></div><div id="exifPanel" class="absolute top-4 right-4 w-80 glass-effect rounded-lg p-4 hidden z-10 max-h-96 overflow-y-auto"><div class="flex justify-between items-center mb-4"><h3 class="font-semibold"><i class="fa fa-info-circle mr-2"></i>EXIF 信息</h3><button id="closeExifBtn" class="text-gray-500 hover:text-white"><i class="fa fa-times"></i></button></div><div id="exifContent" class="space-y-2 text-sm"><div class="text-gray-400 text-center py-4"><i class="fa fa-camera text-3xl mb-2 opacity-50"></i><p>加载图片后显示EXIF信息</p></div></div></div><div id="comparePanel" class="absolute inset-0 hidden z-20"><div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-90"><div class="relative w-full h-full" id="compareContainer"></div><div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-gray-800 rounded-lg px-4 py-2 flex items-center gap-4 z-30"><span class="text-white text-sm">比较模式</span><div class="flex gap-2"><button id="compareSlideBtn" class="btn btn-sm btn-primary"><i class="fa fa-arrows-h mr-1"></i>滑动</button> <button id="compareOverlayBtn" class="btn btn-sm btn-outline text-white border-gray-600"><i class="fa fa-adjust mr-1"></i>叠加</button> <button id="compareSideBySideBtn" class="btn btn-sm btn-outline text-white border-gray-600"><i class="fa fa-columns mr-1"></i>并排</button></div><select id="compareImageSelect" class="bg-gray-700 text-white text-sm rounded px-2 py-1"><option value="">选择比较图片...</option></select> <button id="closeCompareBtn" class="text-gray-400 hover:text-white ml-2"><i class="fa fa-times"></i></button></div></div></div><div id="initialPrompt" class="absolute inset-0 flex flex-col items-center justify-center text-white" style="pointer-events: none;"><i class="fa fa-image text-5xl mb-4 opacity-50"></i><h2 class="text-2xl font-bold mb-2">专业媒体查看器</h2><p class="text-center max-w-md mb-6 opacity-75">支持 RAW/NEF 专业格式 | Minecraft 皮肤 | Office 文档 | 3D 模型 | 视频音频 | Scratch 项目</p><div class="max-w-4xl mx-auto w-full px-4 mb-6" style="pointer-events: auto;"><div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl p-4 border border-white border-opacity-20"><h3 class="text-lg font-semibold mb-3 text-center"><i class="fa fa-th-large mr-2"></i>支持的文件格式</h3><div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 text-sm"><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-image text-2xl mb-2 text-blue-400"></i><p class="font-medium">图片</p><p class="text-xs opacity-75 mt-1">JPG, PNG, GIF, WEBP, BMP, SVG</p></div><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-camera text-2xl mb-2 text-purple-400"></i><p class="font-medium">RAW/NEF</p><p class="text-xs opacity-75 mt-1">RAW, NEF, CR2, ARW, DNG</p></div><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-folder-open text-2xl mb-2 text-yellow-400"></i><p class="font-medium">文件夹</p><p class="text-xs opacity-75 mt-1">批量浏览</p></div><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-video-camera text-2xl mb-2 text-red-400"></i><p class="font-medium">视频</p><p class="text-xs opacity-75 mt-1">MP4, WEBM, MOV, AVI, MKV</p></div><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-music text-2xl mb-2 text-green-400"></i><p class="font-medium">音乐</p><p class="text-xs opacity-75 mt-1">MP3, WAV, FLAC, AAC, OGG</p></div><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-cube text-2xl mb-2 text-cyan-400"></i><p class="font-medium">3D视频</p><p class="text-xs opacity-75 mt-1">SBS, VR, 立体视频</p></div><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-cubes text-2xl mb-2 text-indigo-400"></i><p class="font-medium">3D模型</p><p class="text-xs opacity-75 mt-1">GLB, GLTF, OBJ, FBX, STL</p></div><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-file-text text-2xl mb-2 text-orange-400"></i><p class="font-medium">Office</p><p class="text-xs opacity-75 mt-1">Word, Excel, PowerPoint</p></div><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-file-pdf-o text-2xl mb-2 text-red-500"></i><p class="font-medium">PDF</p><p class="text-xs opacity-75 mt-1">PDF文档查看</p></div><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-file-archive-o text-2xl mb-2 text-amber-400"></i><p class="font-medium">压缩包</p><p class="text-xs opacity-75 mt-1">ZIP, 7Z, RAR</p></div><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-user text-2xl mb-2 text-green-500"></i><p class="font-medium">Minecraft</p><p class="text-xs opacity-75 mt-1">皮肤3D预览</p></div><div class="bg-white bg-opacity-5 rounded-lg p-3 text-center hover:bg-opacity-10 transition"><i class="fa fa-gamepad text-2xl mb-2 text-orange-500"></i><p class="font-medium">Scratch</p><p class="text-xs opacity-75 mt-1">SB, SB2, SB3项目</p></div></div></div></div><div class="flex flex-col sm:flex-row gap-4" style="pointer-events: auto;"><button id="browseFilesBtn" class="btn btn-primary"><i class="fa fa-image mr-2"></i> 浏览图片</button> <button id="browseVideoBtn" class="btn btn-secondary"><i class="fa fa-video-camera mr-2"></i> 浏览视频</button> <button id="browsePdfBtn" class="btn btn-outline text-white border-gray-600"><i class="fa fa-file-pdf-o mr-2"></i> 浏览PDF</button> <button id="browseSkinsBtn" class="btn btn-outline text-white border-gray-600"><i class="fa fa-user mr-2"></i> 查看皮肤</button> <button id="browseScratchBtn" class="btn btn-outline text-white border-orange-500 hover:bg-orange-600 hover:border-orange-600" style="border-color: #f97316;"><i class="fa fa-gamepad mr-2" style="color: #f97316;"></i> <span style="color: #f97316;">Scratch</span></button></div><input type="file" id="fileInput" multiple="" class="hidden" accept="image/*,.raw,.nef"> <input type="file" id="videoInput" multiple="" class="hidden" accept="video/*,.mp4,.webm,.mov,.avi,.mkv,.m4v,.ogg"> <input type="file" id="pdfInput" multiple="" class="hidden" accept=".pdf,application/pdf"></div><div id="imageInfo" class="absolute bottom-4 left-4 text-white text-sm bg-black bg-opacity-50 px-3 py-1 rounded-md z-10 hidden" style="pointer-events: none;"><div id="fileName">未加载文件</div><div id="imageDimensions" class="opacity-75">-</div></div><div id="splitHintOverlay" class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center hidden z-15" style="pointer-events: none;"><div class="text-center text-white"><i class="fa fa-arrows-alt text-4xl mb-2 opacity-75"></i><p class="text-lg">拖拽标签到边缘进行分屏</p><p class="text-sm opacity-75 mt-1">左/右边缘：水平分屏 | 上/下边缘：垂直分屏</p></div></div></div></div></main><div id="settingsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden" style="cursor: pointer;"><div id="settingsContent" class="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-full max-w-md max-h-[85vh] overflow-y-auto overscroll-contain" style="cursor: default;"><div class="sticky top-0 bg-white dark:bg-gray-800 z-10 flex justify-between items-center mb-4 p-6 pb-0"><h2 class="text-xl font-bold" data-i18n="settings">设置</h2><button id="closeSettingsBtn" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"><i class="fa fa-times"></i></button></div><div class="space-y-4 p-6 pt-0"><div class="p-3 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-gray-700 dark:to-gray-700 rounded-lg"><label class="block mb-2 text-sm font-medium flex items-center"><i class="fa fa-globe mr-2 text-purple-500"></i> <span data-i18n="language">语言 / Language</span></label> <select id="languageSelector" class="input-field w-full text-sm"><option value="zh-CN">简体中文</option><option value="zh-TW">繁體中文</option><option value="zh-CN-Classical">简体文言文</option><option value="zh-TW-Classical">繁體文言文</option><option value="en">English</option><option value="ko">한국어</option></select></div><div><label class="block mb-2" data-i18n="thumbnailSize">缩略图大小 <span id="thumbnailSizeValue" class="text-sm text-gray-500">(120)</span></label> <input type="range" id="thumbnailSizeSlider" class="slider" min="80" max="200" value="120"><div class="flex justify-between text-sm text-gray-500"><span data-i18n="small">小</span> <span data-i18n="large">大</span></div></div><div><label class="block mb-2" data-i18n="bgColor">背景颜色</label><div class="grid grid-cols-5 gap-2"><button class="bg-black w-8 h-8 rounded-full" data-bg-color="#000000"></button> <button class="bg-gray-800 w-8 h-8 rounded-full border-transparent" data-bg-color="#1F2937"></button> <button class="bg-gray-600 w-8 h-8 rounded-full border-transparent border-2 border-white" data-bg-color="#4B5563"></button> <button class="bg-gray-400 w-8 h-8 rounded-full border-transparent" data-bg-color="#9CA3AF"></button> <button class="bg-white w-8 h-8 rounded-full border-gray-300" data-bg-color="#FFFFFF"></button></div></div><div class="border-t border-gray-200 dark:border-gray-700 pt-4"><label class="flex items-center"><input type="checkbox" id="autoSaveCheckbox" class="mr-2"> <span data-i18n="autoSaveCache">自动保存到本地缓存</span></label><p class="text-xs text-gray-500 mt-1 ml-6" data-i18n="autoSaveHint">编辑图片后自动保存到未保存列表</p></div><div id="autoSaveDelayContainer" class="pl-6"><label class="block mb-2" data-i18n="autoSaveDelay">自动保存延迟 <span id="autoSaveDelayValue" class="text-sm text-gray-500">(3秒)</span></label> <input type="range" id="autoSaveDelaySlider" class="slider" min="1" max="10" value="3"><div class="flex justify-between text-sm text-gray-500"><span data-i18n="seconds1">1秒</span> <span data-i18n="seconds10">10秒</span></div></div><div class="border-t border-gray-200 dark:border-gray-700 pt-4"><label class="flex items-center"><input type="checkbox" id="autoPlayCheckbox" class="mr-2"> <span data-i18n="autoSlideshow">自动播放幻灯片</span></label></div><div id="slideDurationContainer" class="pl-6 hidden"><label class="block mb-2" data-i18n="slideInterval">幻灯片间隔 <span id="slideDurationValue" class="text-sm text-gray-500">(3秒)</span></label> <input type="range" id="slideDurationSlider" class="slider" min="1" max="10" value="3"><div class="flex justify-between text-sm text-gray-500"><span data-i18n="seconds1">1秒</span> <span data-i18n="seconds10">10秒</span></div></div><div class="border-t border-gray-200 dark:border-gray-700 pt-4"><h3 class="font-semibold mb-3 flex items-center"><i class="fa fa-refresh mr-2 text-blue-500"></i><span data-i18n="hotUpdate">热更新</span></h3><div class="space-y-2"><div class="flex justify-between items-center"><span class="text-sm text-gray-600 dark:text-gray-400" data-i18n="currentVersion">当前版本</span> <span id="currentVersion" class="text-sm font-medium">1.0.0</span></div><div class="flex justify-between items-center"><span class="text-sm text-gray-600 dark:text-gray-400" data-i18n="lastCheck">上次检查</span> <span id="lastUpdateCheck" class="text-sm">2026/3/21 06:19:35</span></div><button id="checkUpdateBtn" class="btn btn-primary btn-sm w-full mt-2"><i class="fa fa-refresh"></i><span data-i18n="checkUpdate">检查更新</span></button></div></div><div class="border-t border-gray-200 dark:border-gray-700 pt-4"><h3 class="font-semibold mb-3 flex items-center"><i class="fa fa-video-camera mr-2 text-blue-500"></i><span data-i18n="videoSettings">视频播放</span></h3><div class="p-3 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-700 dark:to-gray-700 rounded-lg border border-blue-200 dark:border-blue-800"><div class="flex justify-between items-center mb-2"><span class="text-sm font-medium flex items-center"><i class="fa fa-video-camera mr-2 text-blue-500"></i><span data-i18n="webgl2VideoRender">WebGL 2.0 视频渲染</span> </span><label class="relative inline-flex items-center cursor-pointer"><input type="checkbox" id="webglVideoRenderToggle" class="sr-only peer"><div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div></label></div><p class="text-xs text-gray-500 dark:text-gray-400 mb-2" data-i18n="webgl2VideoHint">使用 WebGL 2.0 直接渲染视频帧到 Canvas，隐藏视频元素</p><div id="webglVideoStatus" class="text-xs text-gray-400"><i class="fa fa-circle text-gray-300 mr-1"></i><span data-i18n="notEnabled">未启用</span></div></div></div><div class="border-t border-gray-200 dark:border-gray-700 pt-4"><h3 class="font-semibold mb-3 flex items-center"><i class="fa fa-flask mr-2 text-purple-500"></i><span data-i18n="labFeatures">实验室功能</span> <span class="ml-2 text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded">BETA</span></h3><p class="text-xs text-gray-500 mb-3" data-i18n="labFeaturesHint">这些功能处于实验阶段，可能存在性能问题或不稳定</p><div class="mb-3 p-3 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-700 dark:to-gray-700 rounded-lg"><div class="flex justify-between items-center mb-2"><span class="text-sm font-medium flex items-center"><i class="fa fa-memory mr-2 text-blue-500"></i><span data-i18n="memoryMonitor">内存监控</span> </span><button id="refreshMemoryBtn" class="text-xs text-blue-500 hover:text-blue-600"><i class="fa fa-refresh"></i> <span data-i18n="refresh">刷新</span></button></div><div class="grid grid-cols-2 gap-2 text-xs"><div class="bg-white dark:bg-gray-800 p-2 rounded"><div class="text-gray-500" data-i18n="blobURLs">Blob URLs</div><div id="memoryBlobCount" class="font-semibold">0</div></div><div class="bg-white dark:bg-gray-800 p-2 rounded"><div class="text-gray-500" data-i18n="blobSize">Blob 大小</div><div id="memoryBlobSize" class="font-semibold">0 B</div></div><div class="bg-white dark:bg-gray-800 p-2 rounded"><div class="text-gray-500" data-i18n="resources3D">3D 资源</div><div id="memoryThreeCount" class="font-semibold">0</div></div><div class="bg-white dark:bg-gray-800 p-2 rounded"><div class="text-gray-500" data-i18n="eventListeners">事件监听器</div><div id="memoryListenerCount" class="font-semibold">0</div></div></div><button id="forceCleanupBtn" class="mt-2 w-full text-xs bg-red-100 text-red-600 dark:bg-red-900 dark:text-red-300 py-1 rounded hover:bg-red-200 dark:hover:bg-red-800 transition-colors"><i class="fa fa-trash-o mr-1"></i><span data-i18n="forceCleanup">强制清理内存</span></button></div><div class="mb-3 p-2 bg-gray-50 dark:bg-gray-700 rounded"><div class="flex justify-between items-center"><span class="text-sm" data-i18n="webgpuStatus">WebGPU 状态</span> <span id="webgpuStatus" class="text-xs px-2 py-1 rounded" data-i18n="detecting">检测中...</span></div></div><div class="space-y-2 mb-3"><label class="flex items-center justify-between"><div><span class="text-sm" data-i18n="webgpuVideoRender">WebGPU 视频渲染</span><p class="text-xs text-gray-500" data-i18n="webgpuVideoHint">使用 GPU 加速视频解码和渲染</p></div><input type="checkbox" id="webgpuVideoCheckbox" class="toggle-checkbox" disabled="disabled"></label></div><div class="space-y-2"><label class="flex items-center justify-between"><div><span class="text-sm" data-i18n="webgpuImageRender">WebGPU 图像渲染</span><p class="text-xs text-gray-500" data-i18n="webgpuImageHint">使用 GPU 加速图像处理和显示</p></div><input type="checkbox" id="webgpuImageCheckbox" class="toggle-checkbox" disabled="disabled"></label></div><div id="webgpuModeContainer" class="mt-3 pl-2 border-l-2 border-purple-300 hidden"><label class="block mb-2 text-sm" data-i18n="renderMode">渲染模式</label> <select id="webgpuRenderMode" class="input-field w-full text-sm"><option value="external" data-i18n="externalTexture">外部纹理 (零拷贝，高性能)</option><option value="copy" data-i18n="copyTexture">复制纹理 (兼容性好)</option></select><p class="text-xs text-gray-500 mt-1"><i class="fa fa-info-circle mr-1"></i> <span data-i18n="externalTextureHint">外部纹理模式性能最佳但不支持所有功能</span></p></div><div class="mt-3 p-3 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-700 dark:to-gray-700 rounded-lg border border-blue-200 dark:border-blue-800"><div class="flex justify-between items-center mb-2"><span class="text-sm font-medium flex items-center"><i class="fa fa-video-camera mr-2 text-blue-500"></i><span data-i18n="webgl2VideoRender">WebGL 2.0 视频渲染</span> <span class="ml-2 text-xs bg-orange-100 text-orange-600 px-1.5 py-0.5 rounded" data-i18n="experimental">实验性</span> </span><button id="webglVideoRenderBtn" class="text-xs bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded transition-colors"><i class="fa fa-flask mr-1"></i><span data-i18n="enable">启用</span></button></div><p class="text-xs text-gray-500 dark:text-gray-400 mb-2" data-i18n="webgl2VideoHint">使用 WebGL 2.0 直接渲染视频帧到 Canvas，隐藏视频元素</p><div id="webglVideoStatus" class="text-xs text-gray-400"><i class="fa fa-circle text-gray-300 mr-1"></i><span data-i18n="notEnabled">未启用</span></div></div></div><div class="border-t border-red-300 dark:border-red-800 pt-4"><h3 class="font-semibold mb-3 flex items-center text-red-600 dark:text-red-400"><i class="fa fa-exclamation-triangle mr-2"></i><span data-i18n="dangerMode">高危模式</span> <span class="ml-2 text-xs bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200 px-2 py-0.5 rounded" data-i18n="dangerous">危险</span></h3><p class="text-xs text-red-500 dark:text-red-400 mb-3"><i class="fa fa-warning mr-1"></i> <span data-i18n="dangerModeHint">以下功能可能导致不可预期的行为，请谨慎使用！</span></p><div class="p-3 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800"><div class="flex items-center justify-between"><div><span class="text-sm font-medium text-red-700 dark:text-red-300"><i class="fa fa-random mr-1"></i><span data-i18n="kichikuMode">鬼畜模式</span></span><p class="text-xs text-red-500 dark:text-red-400 mt-1" data-i18n="kichikuModeHint">你自己懂的....</p></div><button id="kichikuModeBtn" class="px-3 py-1 text-xs bg-red-600 hover:bg-red-700 text-white rounded transition-colors"><i class="fa fa-play mr-1"></i><span data-i18n="enable">开启</span></button></div></div></div></div><div class="mt-6 flex justify-end"><button id="applySettingsBtn" class="btn btn-primary"><span data-i18n="apply">应用</span></button></div></div></div><div id="errorModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"><div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-full max-w-md p-6"><div class="flex items-center mb-4"><i class="fa fa-exclamation-circle text-red-500 text-2xl mr-3"></i><h2 class="text-xl font-bold" data-i18n="error">错误</h2></div><p id="errorMessage" class="mb-6" data-i18n="errorOccurred">发生了一个错误</p><div class="flex justify-end"><button id="closeErrorBtn" class="btn btn-primary"><span data-i18n="ok">确定</span></button></div></div></div><div id="saveModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"><div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-full max-w-md p-6"><div class="flex justify-between items-center mb-4"><h2 class="text-xl font-bold" data-i18n="saveImage">保存图片</h2><button id="closeSaveBtn" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300"><i class="fa fa-times"></i></button></div><div class="space-y-4"><div><label class="block mb-2" data-i18n="fileName">文件名</label> <input id="saveFileName" class="input-field w-full" value="edited_image"></div><div><label class="block mb-2" data-i18n="format">格式</label> <select id="saveFormatSelect" class="input-field w-full"><option value="image/jpeg">JPEG</option><option value="image/png">PNG</option><option value="image/webp">WebP</option></select></div><div id="jpegQualityContainer"><label class="block mb-2" data-i18n="quality">质量</label> <input type="range" id="jpegQualitySlider" class="slider" min="1" max="100" value="90"><div class="flex justify-between text-sm text-gray-500"><span data-i18n="low">低</span> <span id="jpegQualityValue">90%</span> <span data-i18n="high">高</span></div></div></div><div class="mt-6 flex justify-end"><button id="confirmSaveBtn" class="btn btn-primary">保存</button></div></div></div><script>// ========== 全局错误处理 ==========
         // 捕获并抑制 scratch-render.js 的内部错误
         window.addEventListener('error', function(event) {
             const errorMsg = event.error ? event.error.message : event.message;
@@ -3922,6 +3924,10 @@
             'glb', 'gltf', 'obj', 'fbx', 'stl', 'dae', '3ds',
             // Office文档格式
             'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'rtf', 'csv', 'odt', 'ods', 'odp',
+            // Markdown 格式
+            'md', 'markdown', 'mdown', 'mkd',
+            // 十六进制格式
+            'hex',
             // Scratch 格式
             'sb', 'sb2', 'sb3',
             // 压缩文件格式
@@ -3939,6 +3945,8 @@
         const pptFormats = ['ppt', 'pptx', 'odp'];
                 const scratchFormats = ['sb', 'sb2', 'sb3'];
                 const archiveFormats = ['zip', '7z', 'rar', 'zst', 'zstd'];
+                const markdownFormats = ['md', 'markdown', 'mdown', 'mkd'];
+                const hexFormats = ['hex'];
 
 
                 // 检测是否为 Minecraft 皮肤格式
@@ -5070,6 +5078,262 @@
 
             document.getElementById('initialPrompt').classList.add('hidden');
             document.getElementById('mainViewContainer').classList.remove('hidden');
+        }
+
+        // 切换到 Markdown 模式
+        function switchToMarkdownMode() {
+            if (videoPlayer && !videoPlayer.paused) {
+                videoPlayer.pause();
+            }
+            if (audioPlayer && audioIsPlaying) {
+                audioPlayer.pause();
+            }
+
+            currentMode = 'markdown';
+
+            if (splitView.active) {
+                hideAllViewContainers();
+                document.getElementById('splitViewContainer')?.classList.remove('hidden');
+                return;
+            }
+
+            hideAllViewContainers();
+
+            let container = document.getElementById('markdownContainer');
+            if (!container) {
+                container = document.createElement('div');
+                container.id = 'markdownContainer';
+                container.className = 'w-full h-full overflow-auto bg-white dark:bg-gray-800';
+                document.getElementById('mainViewContainer').appendChild(container);
+            }
+            container.classList.remove('hidden');
+
+            document.getElementById('initialPrompt').classList.add('hidden');
+            document.getElementById('mainViewContainer').classList.remove('hidden');
+        }
+
+        // 切换到十六进制模式
+        function switchToHexMode() {
+            if (videoPlayer && !videoPlayer.paused) {
+                videoPlayer.pause();
+            }
+            if (audioPlayer && audioIsPlaying) {
+                audioPlayer.pause();
+            }
+
+            currentMode = 'hex';
+
+            if (splitView.active) {
+                hideAllViewContainers();
+                document.getElementById('splitViewContainer')?.classList.remove('hidden');
+                return;
+            }
+
+            hideAllViewContainers();
+
+            let container = document.getElementById('hexContainer');
+            if (!container) {
+                container = document.createElement('div');
+                container.id = 'hexContainer';
+                container.className = 'w-full h-full overflow-auto bg-white dark:bg-gray-800';
+                document.getElementById('mainViewContainer').appendChild(container);
+            }
+            container.classList.remove('hidden');
+
+            document.getElementById('initialPrompt').classList.add('hidden');
+            document.getElementById('mainViewContainer').classList.remove('hidden');
+        }
+
+        // ========== Markdown 查看器 ==========
+        // 读取文件为文本（自动检测编码）
+        async function readFileAsText(file) {
+            return await new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = () => reject(reader.error || new Error('读取文件失败'));
+                reader.readAsText(file);
+            });
+        }
+
+        // 渲染 Markdown 到指定容器
+        function renderMarkdownInto(el, markdownText) {
+            if (typeof marked === 'undefined') {
+                el.innerHTML = '<div class="p-6 text-red-500">Markdown 渲染库未加载</div>';
+                return;
+            }
+            let html;
+            try {
+                html = marked.parse(markdownText);
+            } catch (e) {
+                html = '<p>Markdown 解析失败: ' + e.message + '</p>';
+            }
+            if (typeof DOMPurify !== 'undefined') {
+                html = DOMPurify.sanitize(html);
+            }
+            el.innerHTML = html;
+        }
+
+        async function renderMarkdownDocument(tab) {
+            const container = document.getElementById('markdownContainer');
+            if (!container) return;
+
+            container.innerHTML = `
+                <div class="p-8 max-w-4xl mx-auto">
+                    <!-- Markdown 工具栏 -->
+                    <div class="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-4 mb-4 flex items-center gap-4 z-10">
+                        <span class="font-semibold"><i class="fa fa-file-text-o text-blue-500 mr-2"></i>${tab.name}</span>
+                        <div class="flex items-center gap-2 ml-auto">
+                            <button id="mdViewToggle" class="px-3 py-1 bg-blue-100 dark:bg-blue-900 rounded hover:bg-blue-200 dark:hover:bg-blue-800">
+                                <i class="fa fa-eye mr-1"></i><span>源码</span>
+                            </button>
+                            <button id="mdPrint" class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded hover:bg-gray-200 dark:hover:bg-gray-600 ml-2">
+                                <i class="fa fa-print mr-1"></i>打印
+                            </button>
+                        </div>
+                    </div>
+                    <!-- 内容区 -->
+                    <div id="mdContent" class="prose dark:prose-invert max-w-none"></div>
+                    <pre id="mdSource" class="hidden text-sm bg-gray-50 dark:bg-gray-900 p-4 rounded overflow-auto whitespace-pre-wrap"></pre>
+                </div>
+            `;
+
+            try {
+                const text = await readFileAsText(tab.file);
+                tab.mdText = text;
+                renderMarkdownInto(document.getElementById('mdContent'), text);
+                document.getElementById('mdSource').textContent = text;
+
+                // 渲染/源码切换
+                document.getElementById('mdViewToggle').addEventListener('click', () => {
+                    const switchToSource = tab.mdView === 'render';
+                    tab.mdView = switchToSource ? 'source' : 'render';
+                    document.getElementById('mdContent').classList.toggle('hidden', switchToSource);
+                    document.getElementById('mdSource').classList.toggle('hidden', !switchToSource);
+                    document.getElementById('mdViewToggle').querySelector('span').textContent = switchToSource ? '渲染' : '源码';
+                });
+
+                // 打印
+                document.getElementById('mdPrint').addEventListener('click', () => {
+                    const printWindow = window.open('', '_blank');
+                    printWindow.document.write(`
+                        <html>
+                        <head><title>${tab.name}</title>
+                        <style>body { font-family: sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; } code { background: #f0f0f0; padding: 2px 4px; } pre { background: #f0f0f0; padding: 12px; overflow: auto; }</style>
+                        </head>
+                        <body>${document.getElementById('mdContent').innerHTML}</body>
+                        </html>
+                    `);
+                    printWindow.document.close();
+                });
+            } catch (error) {
+                console.error('Markdown 渲染错误:', error);
+                document.getElementById('mdContent').innerHTML = `
+                    <div class="text-red-500 py-8 text-center">
+                        <i class="fa fa-exclamation-triangle text-4xl mb-4"></i>
+                        <p>Markdown 渲染失败</p>
+                        <p class="text-sm text-gray-500 mt-2">${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        // ========== 十六进制查看器 ==========
+        const HEX_PAGE_SIZE = 256; // 每页字节数 (16 行 × 16 列)
+
+        // 渲染一页十六进制内容到指定容器
+        function renderHexInto(el, data, page, showAscii) {
+            if (!data || data.length === 0) {
+                el.innerHTML = '<div class="p-6 text-gray-500 text-center"><i class="fa fa-file-o text-4xl mb-4"></i><p>空文件</p></div>';
+                return;
+            }
+
+            const pageStart = page * HEX_PAGE_SIZE;
+            const pageEnd = Math.min(pageStart + HEX_PAGE_SIZE, data.length);
+            const bytesPerRow = 16;
+
+            let html = '<table class="w-full font-mono text-xs border-collapse"><tbody>';
+            for (let offset = pageStart; offset < pageEnd; offset += bytesPerRow) {
+                const rowEnd = Math.min(offset + bytesPerRow, pageEnd);
+                // 偏移地址列
+                html += `<tr><td class="text-gray-500 dark:text-gray-400 pr-4 select-none whitespace-nowrap align-top py-0.5">${offset.toString(16).padStart(8, '0')}</td>`;
+                // 十六进制字节列
+                html += '<td class="pr-4 whitespace-nowrap align-top py-0.5">';
+                for (let i = offset; i < rowEnd; i++) {
+                    const byte = data[i];
+                    const cls = byte === 0 ? 'text-gray-400' : 'text-gray-800 dark:text-gray-200';
+                    html += `<span class="${cls}">${byte.toString(16).padStart(2, '0').toUpperCase()}</span> `;
+                    if ((i - offset) % 8 === 7) html += '<span class="mr-2"></span>'; // 每 8 字节一个间隔
+                }
+                html += '</td>';
+                // ASCII 列
+                if (showAscii) {
+                    html += '<td class="whitespace-nowrap text-gray-600 dark:text-gray-400 align-top py-0.5">';
+                    for (let i = offset; i < rowEnd; i++) {
+                        const b = data[i];
+                        const ch = (b >= 0x20 && b <= 0x7E) ? String.fromCharCode(b) : '.';
+                        html += `<span>${ch}</span>`;
+                    }
+                    html += '</td>';
+                }
+                html += '</tr>';
+            }
+            html += '</tbody></table>';
+            el.innerHTML = html;
+        }
+
+        async function renderHexViewer(tab) {
+            const container = document.getElementById('hexContainer');
+            if (!container) return;
+
+            const arrayBuffer = await tab.file.arrayBuffer();
+            tab.hexData = new Uint8Array(arrayBuffer);
+            tab.hexTotalPages = Math.max(1, Math.ceil(tab.hexData.length / HEX_PAGE_SIZE));
+
+            container.innerHTML = `
+                <div class="p-6">
+                    <!-- 十六进制工具栏 -->
+                    <div class="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-4 mb-4 flex items-center gap-3 z-10">
+                        <span class="font-semibold"><i class="fa fa-file-code-o text-emerald-500 mr-2"></i>${tab.name}</span>
+                        <span class="text-xs text-gray-500">${formatFileSize(tab.hexData.length)}</span>
+                        <div class="flex items-center gap-2 ml-auto">
+                            <button id="hexFirst" class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded hover:bg-gray-200 dark:hover:bg-gray-600" title="第一页"><i class="fa fa-step-backward"></i></button>
+                            <button id="hexPrev" class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded hover:bg-gray-200 dark:hover:bg-gray-600" title="上一页"><i class="fa fa-chevron-left"></i></button>
+                            <span id="hexPageInfo" class="text-sm min-w-[100px] text-center"></span>
+                            <button id="hexNext" class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded hover:bg-gray-200 dark:hover:bg-gray-600" title="下一页"><i class="fa fa-chevron-right"></i></button>
+                            <button id="hexLast" class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded hover:bg-gray-200 dark:hover:bg-gray-600" title="最后一页"><i class="fa fa-step-forward"></i></button>
+                            <button id="hexAsciiToggle" class="px-3 py-1 bg-blue-100 dark:bg-blue-900 rounded hover:bg-blue-200 dark:hover:bg-blue-800 ml-2">
+                                <i class="fa fa-font mr-1"></i>ASCII
+                            </button>
+                        </div>
+                    </div>
+                    <!-- 十六进制内容 -->
+                    <div id="hexContent" class="font-mono text-xs overflow-auto"></div>
+                </div>
+            `;
+
+            const content = document.getElementById('hexContent');
+            const pageInfo = document.getElementById('hexPageInfo');
+
+            if (tab.hexPage >= tab.hexTotalPages) {
+                tab.hexPage = tab.hexTotalPages - 1;
+            }
+
+            const render = () => {
+                renderHexInto(content, tab.hexData, tab.hexPage, tab.showAscii);
+                pageInfo.textContent = `${tab.hexPage + 1} / ${tab.hexTotalPages}`;
+                document.getElementById('hexFirst').disabled = tab.hexPage === 0;
+                document.getElementById('hexPrev').disabled = tab.hexPage === 0;
+                document.getElementById('hexNext').disabled = tab.hexPage >= tab.hexTotalPages - 1;
+                document.getElementById('hexLast').disabled = tab.hexPage >= tab.hexTotalPages - 1;
+            };
+
+            document.getElementById('hexFirst').addEventListener('click', () => { tab.hexPage = 0; render(); });
+            document.getElementById('hexPrev').addEventListener('click', () => { if (tab.hexPage > 0) { tab.hexPage--; render(); } });
+            document.getElementById('hexNext').addEventListener('click', () => { if (tab.hexPage < tab.hexTotalPages - 1) { tab.hexPage++; render(); } });
+            document.getElementById('hexLast').addEventListener('click', () => { tab.hexPage = tab.hexTotalPages - 1; render(); });
+            document.getElementById('hexAsciiToggle').addEventListener('click', () => { tab.showAscii = !tab.showAscii; render(); });
+
+            render();
         }
 
         async function renderWordDocument(tab) {
@@ -8615,6 +8879,18 @@
             });
             document.getElementById('openAudioInput').addEventListener('change', handleAudioSelect);
             
+            // 打开 Markdown 按钮
+            document.getElementById('openMdBtn').addEventListener('click', () => {
+                document.getElementById('openMdInput').click();
+            });
+            document.getElementById('openMdInput').addEventListener('change', handleMdSelect);
+
+            // 打开十六进制按钮
+            document.getElementById('openHexBtn').addEventListener('click', () => {
+                document.getElementById('openHexInput').click();
+            });
+            document.getElementById('openHexInput').addEventListener('change', handleHexSelect);
+            
             // 音频播放器控件事件监听器
             const audioPlayBtn = document.getElementById('audioPlayBtn');
             if (audioPlayBtn) {
@@ -9624,6 +9900,24 @@
             });
         }
 
+        // Markdown 文件选择处理
+        function handleMdSelect(e) {
+            const files = Array.from(e.target.files);
+            if (files.length === 0) return;
+            files.forEach((file, index) => {
+                loadFileAsTab(file, index === 0);
+            });
+        }
+
+        // 十六进制文件选择处理
+        function handleHexSelect(e) {
+            const files = Array.from(e.target.files);
+            if (files.length === 0) return;
+            files.forEach((file, index) => {
+                loadFileAsTab(file, index === 0);
+            });
+        }
+
         // ========== Scratch 项目播放器功能 ==========
 
         // 生成 Scratch 项目缩略图
@@ -10553,6 +10847,12 @@
                     case 'scratch':
                         await previewScratchInArchive(previewContainer, fileData);
                         break;
+                    case 'markdown':
+                        await previewMarkdownInArchive(previewContainer, fileData);
+                        break;
+                    case 'hex':
+                        await previewHexInArchive(previewContainer, fileData);
+                        break;
                     default:
                         previewContainer.innerHTML = `
                             <div class="text-gray-400 text-center">
@@ -10576,6 +10876,31 @@
                         <p class="text-sm text-gray-500 mt-2">${error.message}</p>
                     </div>
                 `;
+            }
+        }
+
+        // 在压缩文件中预览 Markdown
+        async function previewMarkdownInArchive(container, file) {
+            container.innerHTML = '<div class="w-full h-full overflow-auto"><div class="p-8 max-w-4xl mx-auto" id="archiveMdContent"></div></div>';
+            try {
+                const text = await readFileAsText(file);
+                renderMarkdownInto(document.getElementById('archiveMdContent'), text);
+            } catch (error) {
+                console.error('Markdown 预览失败:', error);
+                container.innerHTML = '<div class="text-red-500 p-6">Markdown 预览失败: ' + error.message + '</div>';
+            }
+        }
+
+        // 在压缩文件中预览十六进制
+        async function previewHexInArchive(container, file) {
+            container.innerHTML = '<div class="w-full h-full overflow-auto p-4 font-mono text-xs" id="archiveHexContent"></div>';
+            try {
+                const arrayBuffer = await file.arrayBuffer();
+                const data = new Uint8Array(arrayBuffer);
+                renderHexInto(document.getElementById('archiveHexContent'), data, 0, true);
+            } catch (error) {
+                console.error('十六进制预览失败:', error);
+                container.innerHTML = '<div class="text-red-500 p-6">十六进制预览失败: ' + error.message + '</div>';
             }
         }
 
@@ -10714,7 +11039,8 @@
             if (['ppt', 'pptx'].includes(extension)) return 'fa-file-powerpoint-o';
             if (['zip', '7z', 'rar', 'zst', 'zstd'].includes(extension)) return 'fa-file-archive-o';
             if (['sb', 'sb2', 'sb3'].includes(extension)) return 'fa-gamepad';
-            if (['txt', 'md', 'json', 'xml'].includes(extension)) return 'fa-file-text-o';
+            if (['txt', 'md', 'markdown', 'mdown', 'mkd', 'json', 'xml'].includes(extension)) return 'fa-file-text-o';
+            if (['hex'].includes(extension)) return 'fa-file-code-o';
             return 'fa-file-o';
         }
 
@@ -11865,6 +12191,58 @@
                 }
             }
             
+            // Markdown 标签特殊处理
+            if (tab.type === 'markdown') {
+                if (activeTabId !== null) {
+                    saveCurrentTabState();
+                }
+
+                activeTabId = tabId;
+
+                if (splitView.active) {
+                    const paneIndex = splitView.panes.findIndex(p => p.tabId === tabId);
+                    if (paneIndex !== -1) {
+                        activeSplitPane = paneIndex;
+                        updateSplitPaneStyles();
+                    }
+                    renderTabs();
+                    updateActiveThumbnail();
+                    return;
+                }
+
+                switchToMarkdownMode();
+                renderMarkdownDocument(tab);
+                renderTabs();
+                updateActiveThumbnail();
+                return;
+            }
+
+            // 十六进制标签特殊处理
+            if (tab.type === 'hex') {
+                if (activeTabId !== null) {
+                    saveCurrentTabState();
+                }
+
+                activeTabId = tabId;
+
+                if (splitView.active) {
+                    const paneIndex = splitView.panes.findIndex(p => p.tabId === tabId);
+                    if (paneIndex !== -1) {
+                        activeSplitPane = paneIndex;
+                        updateSplitPaneStyles();
+                    }
+                    renderTabs();
+                    updateActiveThumbnail();
+                    return;
+                }
+
+                switchToHexMode();
+                renderHexViewer(tab);
+                renderTabs();
+                updateActiveThumbnail();
+                return;
+            }
+
             // PDF 标签特殊处理
             if (tab.type === 'pdf') {
                 // 保存当前标签的状态
@@ -12852,6 +13230,10 @@
                     icon = '<i class="fa fa-file-excel-o tab-icon" style="color:#10B981;"></i>';
                 } else if (tab.type === 'ppt') {
                     icon = '<i class="fa fa-file-powerpoint-o tab-icon" style="color:#F97316;"></i>';
+                } else if (tab.type === 'markdown') {
+                    icon = '<i class="fa fa-file-text-o tab-icon" style="color:#3B82F6;"></i>';
+                } else if (tab.type === 'hex') {
+                    icon = '<i class="fa fa-file-code-o tab-icon" style="color:#10B981;"></i>';
                 } else if (tab.isSkin) {
                     icon = '<i class="fa fa-user tab-icon" style="color:#8B5CF6;"></i>';
                 } else {
@@ -13479,6 +13861,40 @@
                             </div>
                             <div class="split-pane-content flex items-center justify-center bg-gray-900">
                                 <div class="split-ppt-slide bg-white aspect-[16/9] w-full max-w-full p-4 rounded shadow"></div>
+                            </div>
+                        `;
+                        setupPaneInteractionEvents(paneEl, index, tab);
+                    }
+                    // Markdown 文档面板
+                    else if (tab.type === 'markdown') {
+                        paneEl.innerHTML = `
+                            <div class="split-pane-header">
+                                <i class="fa fa-file-text-o pane-icon text-blue-400"></i>
+                                <span class="pane-name" title="${tab.name}">${tab.name}</span>
+                                <span class="pane-info">Markdown</span>
+                                <span class="close-split-btn" onclick="closeSplitPane(${index})" title="关闭此分屏">
+                                    <i class="fa fa-times"></i>
+                                </span>
+                            </div>
+                            <div class="split-pane-content" style="overflow:auto;background:#fff;">
+                                <div class="split-md-content p-4"></div>
+                            </div>
+                        `;
+                        setupPaneInteractionEvents(paneEl, index, tab);
+                    }
+                    // 十六进制面板
+                    else if (tab.type === 'hex') {
+                        paneEl.innerHTML = `
+                            <div class="split-pane-header">
+                                <i class="fa fa-file-code-o pane-icon text-emerald-400"></i>
+                                <span class="pane-name" title="${tab.name}">${tab.name}</span>
+                                <span class="pane-info">Hex</span>
+                                <span class="close-split-btn" onclick="closeSplitPane(${index})" title="关闭此分屏">
+                                    <i class="fa fa-times"></i>
+                                </span>
+                            </div>
+                            <div class="split-pane-content" style="overflow:auto;background:#fff;">
+                                <div class="split-hex-content p-4 font-mono text-xs"></div>
                             </div>
                         `;
                         setupPaneInteractionEvents(paneEl, index, tab);
@@ -14573,6 +14989,29 @@
         }
         
         // 分屏Word内容渲染
+        // 分屏渲染 Markdown 内容
+        async function renderSplitMarkdownContent(pane, tab, el) {
+            try {
+                const text = await readFileAsText(tab.file);
+                renderMarkdownInto(el, text);
+            } catch (error) {
+                console.error('分屏 Markdown 渲染失败:', error);
+                el.innerHTML = '<div class="text-red-500 p-4">Markdown 渲染失败: ' + error.message + '</div>';
+            }
+        }
+
+        // 分屏渲染十六进制内容
+        async function renderSplitHexContent(pane, tab, el) {
+            try {
+                const arrayBuffer = await tab.file.arrayBuffer();
+                const data = new Uint8Array(arrayBuffer);
+                renderHexInto(el, data, 0, true);
+            } catch (error) {
+                console.error('分屏十六进制渲染失败:', error);
+                el.innerHTML = '<div class="text-red-500 p-4">十六进制渲染失败: ' + error.message + '</div>';
+            }
+        }
+
         async function renderSplitWordContent(pane, tab, container) {
             if (!LibsStatus.mammoth && !LibsStatus.docx) {
                 container.innerHTML = '<p class="text-gray-500 text-center p-4">Word解析库未加载</p>';
@@ -14770,6 +15209,24 @@
                 return;
             }
             
+            // Markdown 面板 - 渲染文档内容
+            if (tab.type === 'markdown') {
+                const mdContent = pane.querySelector('.split-md-content');
+                if (mdContent && tab.file) {
+                    renderSplitMarkdownContent(pane, tab, mdContent);
+                }
+                return;
+            }
+
+            // 十六进制面板 - 渲染内容
+            if (tab.type === 'hex') {
+                const hexContent = pane.querySelector('.split-hex-content');
+                if (hexContent && tab.file) {
+                    renderSplitHexContent(pane, tab, hexContent);
+                }
+                return;
+            }
+
             // PPT演示面板 - 渲染幻灯片
             if (tab.type === 'ppt') {
                 const pptSlide = pane.querySelector('.split-ppt-slide');
@@ -15507,6 +15964,18 @@
                     return;
                 }
 
+                // 处理Markdown文件
+                if (contentType === 'markdown' || markdownFormats.includes(extension)) {
+                    await loadMdAsTab(file, showImmediately);
+                    return;
+                }
+
+                // 处理十六进制文件
+                if (contentType === 'hex' || hexFormats.includes(extension)) {
+                    await loadHexAsTab(file, showImmediately);
+                    return;
+                }
+
                 // 处理压缩文件
                 if (contentType === 'archive' || archiveFormats.includes(extension)) {
                     await loadArchiveAsTab(file, showImmediately);
@@ -15514,14 +15983,33 @@
                 }
 
                 // 处理图片文件
-                let img;
-                if (['raw', 'iaw', 'bin', 'dat'].includes(extension)) {
-                    img = await loadRawImage(file);
-                } else {
-                    img = await createImageFromFile(file);
+                // 未知扩展名（无法识别的二进制文件）直接使用十六进制查看器
+                const knownImageExts = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp', 'svg', 'avif', 'ico', 'tif', 'tiff',
+                    'raw', 'iaw', 'bin', 'dat', 'nef', 'cr2', 'arw', 'dng', 'orf', 'pef', 'raf', 'mrw', 'rw2'];
+                if (contentType === 'image' && !knownImageExts.includes(extension)) {
+                    await loadHexAsTab(file, showImmediately);
+                    return;
                 }
 
-                if (!img) throw new Error('无法加载图片');
+                let img;
+                try {
+                    if (['raw', 'iaw', 'bin', 'dat'].includes(extension)) {
+                        img = await loadRawImage(file);
+                    } else {
+                        img = await createImageFromFile(file);
+                    }
+                } catch (imgError) {
+                    // 图片加载失败，自动回退到十六进制查看器
+                    console.warn('图片加载失败，回退到十六进制查看器:', imgError);
+                    await loadHexAsTab(file, showImmediately);
+                    return;
+                }
+
+                if (!img) {
+                    // 无法识别为图片，回退到十六进制查看器
+                    await loadHexAsTab(file, showImmediately);
+                    return;
+                }
 
                 // 检测是否为皮肤格式
                 const isSkin = extension === 'png' && isMinecraftSkin(img.width, img.height);
@@ -15553,6 +16041,8 @@
             if (pptFormats.includes(extension)) return 'ppt';
             if (scratchFormats.includes(extension)) return 'scratch';
             if (archiveFormats.includes(extension)) return 'archive';
+            if (markdownFormats.includes(extension)) return 'markdown';
+            if (hexFormats.includes(extension)) return 'hex';
             return 'image';
         }
 
@@ -15741,6 +16231,51 @@
         }
 
         // ========== 加载压缩文件 ==========
+        // 加载 Markdown 文件
+        async function loadMdAsTab(file, showImmediately = true) {
+            const tabId = ++tabIdCounter;
+            const tab = {
+                id: tabId,
+                file: file,
+                name: file.name,
+                type: 'markdown',
+                mdView: 'render' // 'render' | 'source'
+            };
+
+            openTabs.push(tab);
+            renderTabs();
+
+            if (showImmediately) {
+                switchToTab(tabId);
+            }
+
+            hideLoading();
+            showToast('Markdown 已加载: ' + file.name, 'success');
+        }
+
+        // 加载十六进制文件
+        async function loadHexAsTab(file, showImmediately = true) {
+            const tabId = ++tabIdCounter;
+            const tab = {
+                id: tabId,
+                file: file,
+                name: file.name,
+                type: 'hex',
+                hexPage: 0,
+                showAscii: true
+            };
+
+            openTabs.push(tab);
+            renderTabs();
+
+            if (showImmediately) {
+                switchToTab(tabId);
+            }
+
+            hideLoading();
+            showToast('十六进制文件已加载: ' + file.name, 'success');
+        }
+
         async function loadArchiveAsTab(file, showImmediately = true) {
             const tabId = ++tabIdCounter;
             const archiveUrl = typeof MemoryManager !== 'undefined' && MemoryManager.createBlobURL
@@ -19167,6 +19702,10 @@
                     'ppt': 'fa fa-file-powerpoint-o text-orange-500',
                     'pptx': 'fa fa-file-powerpoint-o text-orange-500',
                     'txt': 'fa fa-file-text-o text-gray-400',
+                    'md': 'fa fa-file-text-o text-gray-400',
+                    'markdown': 'fa fa-file-text-o text-gray-400',
+                    'mkd': 'fa fa-file-text-o text-gray-400',
+                    'hex': 'fa fa-file-code-o text-emerald-400',
                     'zip': 'fa fa-file-archive-o text-purple-400',
                     '7z': 'fa fa-file-archive-o text-purple-400',
                     'rar': 'fa fa-file-archive-o text-purple-400',
