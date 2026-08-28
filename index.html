@@ -56,6 +56,14 @@
             }
         } catch (error) {
             console.warn('7z-wasm 加载失败:', error.message);
+        }</script><script type="module">// Zstandard (.zst) 解压支持 (fzstd 纯 JS 实现)
+        window.ZstdDecompress = null;
+        try {
+            const fzstd = await import('https://cdn.jsdelivr.net/npm/fzstd@0.1.1/+esm');
+            window.ZstdDecompress = fzstd.decompress;
+            console.log('fzstd 加载成功，支持 Zstandard (.zst) 解压');
+        } catch (error) {
+            console.warn('fzstd 加载失败，.zst 文件将无法解压:', error.message);
         }</script><script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgenjs.bundle.js"></script><script src="https://cdn.bootcdn.net/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script><script src="https://cdn.jsdelivr.net/npm/hls.js@1.6.15/dist/hls.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/dashjs/5.0.3/legacy/umd/dash.all.min.js"></script><script>// 库加载状态检测
         const LibsStatus = {
             three: typeof THREE !== 'undefined',
@@ -3917,7 +3925,7 @@
             // Scratch 格式
             'sb', 'sb2', 'sb3',
             // 压缩文件格式
-            'zip', '7z', 'rar'
+            'zip', '7z', 'rar', 'zst', 'zstd'
         ];
 
         const videoFormats = ['mp4', 'webm', 'ogv', 'mov', 'avi', 'mkv', 'm4v'];
@@ -3930,7 +3938,7 @@
         const excelFormats = ['xls', 'xlsx', 'csv', 'ods'];
         const pptFormats = ['ppt', 'pptx', 'odp'];
                 const scratchFormats = ['sb', 'sb2', 'sb3'];
-                const archiveFormats = ['zip', '7z', 'rar'];
+                const archiveFormats = ['zip', '7z', 'rar', 'zst', 'zstd'];
 
 
                 // 检测是否为 Minecraft 皮肤格式
@@ -10390,6 +10398,27 @@
                     } else {
                         throw new Error('7z-wasm 库未加载');
                     }
+                } else if (tab.archiveFormat === 'zst' || tab.archiveFormat === 'zstd') {
+                    // 使用 fzstd 解压 Zstandard 单文件流
+                    if (window.ZstdDecompress) {
+                        const response = await fetch(tab.archiveUrl);
+                        const compressed = new Uint8Array(await response.arrayBuffer());
+                        const decompressed = window.ZstdDecompress(compressed);
+
+                        // 原始文件名：去掉 .zst/.zstd 后缀
+                        const originalName = tab.name.replace(/\.(zst|zstd)$/i, '');
+
+                        files = [{
+                            name: originalName,
+                            size: decompressed.byteLength,
+                            compressedSize: compressed.byteLength
+                        }];
+
+                        // 保存解压数据到 tab
+                        tab.zstdData = { data: decompressed, originalName: originalName };
+                    } else {
+                        throw new Error('fzstd 库未加载');
+                    }
                 } else if (tab.archiveFormat === 'rar') {
                     // RAR 格式暂不支持
                     throw new Error('RAR 格式暂不支持');
@@ -10498,6 +10527,9 @@
                     const tempPath = tab.sevenZipData.tempPath + '/' + file.name;
                     const arrayBuffer = await SevenZipInstance.readFile(tempPath);
                     fileData = new File([arrayBuffer], file.name);
+                } else if ((tab.archiveFormat === 'zst' || tab.archiveFormat === 'zstd') && tab.zstdData) {
+                    // Zstandard 解压后的单文件
+                    fileData = new File([tab.zstdData.data], file.name);
                 }
 
                 if (!fileData) {
@@ -10650,6 +10682,10 @@
                     const tempPath = tab.sevenZipData.tempPath + '/' + fileName;
                     const arrayBuffer = await SevenZipInstance.readFile(tempPath);
                     fileData = new File([arrayBuffer], fileName);
+                } else if ((tab.archiveFormat === 'zst' || tab.archiveFormat === 'zstd') && tab.zstdData) {
+                    // Zstandard 解压后的单文件
+                    const blob = new Blob([tab.zstdData.data]);
+                    fileData = new File([blob], fileName);
                 }
 
                 if (fileData) {
@@ -10676,7 +10712,7 @@
             if (['doc', 'docx'].includes(extension)) return 'fa-file-word-o';
             if (['xls', 'xlsx'].includes(extension)) return 'fa-file-excel-o';
             if (['ppt', 'pptx'].includes(extension)) return 'fa-file-powerpoint-o';
-            if (['zip', '7z', 'rar'].includes(extension)) return 'fa-file-archive-o';
+            if (['zip', '7z', 'rar', 'zst', 'zstd'].includes(extension)) return 'fa-file-archive-o';
             if (['sb', 'sb2', 'sb3'].includes(extension)) return 'fa-gamepad';
             if (['txt', 'md', 'json', 'xml'].includes(extension)) return 'fa-file-text-o';
             return 'fa-file-o';
@@ -18823,6 +18859,8 @@
                         await this.loadZip(file);
                     } else if (extension === '7z') {
                         await this.load7z(file);
+                    } else if (extension === 'zst' || extension === 'zstd') {
+                        await this.loadZstd(file);
                     } else {
                         showToast('不支持的压缩格式', 'error');
                     }
@@ -18915,6 +18953,41 @@
                 } catch (error) {
                     console.error('7z 解压失败:', error);
                     showToast('7z 解压失败: ' + error.message, 'error');
+                }
+            },
+            
+            async loadZstd(file) {
+                showToast('正在解压 Zstandard 文件...', 'info');
+                
+                if (!window.ZstdDecompress) {
+                    showToast('fzstd 库未加载，无法打开 .zst 文件', 'error');
+                    return;
+                }
+                
+                try {
+                    const compressed = new Uint8Array(await file.arrayBuffer());
+                    const decompressed = window.ZstdDecompress(compressed);
+                    const originalName = file.name.replace(/\.(zst|zstd)$/i, '');
+                    
+                    this.currentArchive = 'zstd';
+                    this.currentFiles = [{
+                        name: originalName,
+                        path: originalName,
+                        isDir: false,
+                        data: decompressed,
+                        originalPath: originalName
+                    }];
+                    this.currentPath = [];
+                    this.currentArchiveFile = file;
+                    
+                    this.renderTree();
+                    this.showPanel();
+                    
+                    document.getElementById('archiveInfo').textContent = file.name + ' → ' + originalName + ' (' + decompressed.byteLength + ' 字节)';
+                    showToast('Zstandard 文件解压完成', 'success');
+                } catch (error) {
+                    console.error('zstd 解压失败:', error);
+                    showToast('zstd 解压失败: ' + error.message, 'error');
                 }
             },
             
@@ -19098,7 +19171,9 @@
                     '7z': 'fa fa-file-archive-o text-purple-400',
                     'rar': 'fa fa-file-archive-o text-purple-400',
                     'tar': 'fa fa-file-archive-o text-purple-400',
-                    'gz': 'fa fa-file-archive-o text-purple-400'
+                    'gz': 'fa fa-file-archive-o text-purple-400',
+                    'zst': 'fa fa-file-archive-o text-purple-400',
+                    'zstd': 'fa fa-file-archive-o text-purple-400'
                 };
                 return iconMap[ext] || 'fa fa-file-o text-gray-400';
             },
@@ -19107,7 +19182,10 @@
                 try {
                     let blob;
                     
-                    if (this.currentArchive instanceof JSZip) {
+                    if (this.currentArchive === 'zstd' && item.data) {
+                        // Zstandard 解压后的单文件
+                        blob = new Blob([item.data], { type: this.getMimeType(item.name) });
+                    } else if (this.currentArchive instanceof JSZip) {
                         // ZIP 文件
                         blob = await item.entry.async('blob');
                     } else {
